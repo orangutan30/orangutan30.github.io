@@ -6,15 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2020/1 | Orangutan30 blog</title>
+  <title>检索方式——HQL检索方式（基础部分） | Orangutan30 blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="倚天照海花无数,流水高山心自知">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Orangutan30 blog">
-<meta property="og:url" content="http://yoursite.com/archives/2020/01/index.html">
+  <meta name="description" content="检索方式分为5种： 导航对象图检索方式：根据已经加载的对象导航到其他对象 OID检索方式：按照对象的OID来检索对象 HQL检索方式：使用面向对象的HQL查询语言 QBC检索方式：使用QBC（Query By Criteria）API来检索对象。这种API封装了基于字符串形式的查询语句，提供了更加面向对象的查询接口。 本地SQL检索方式：使用本地数据库的SQL查询语句。   HQL检索方式1：定义">
+<meta property="og:type" content="article">
+<meta property="og:title" content="检索方式——HQL检索方式（基础部分）">
+<meta property="og:url" content="http://yoursite.com/2020/01/17/%E6%A3%80%E7%B4%A2%E6%96%B9%E5%BC%8F%E2%80%94%E2%80%94HQL%E6%A3%80%E7%B4%A2%E6%96%B9%E5%BC%8F%EF%BC%88%E5%9F%BA%E7%A1%80%E9%83%A8%E5%88%86%EF%BC%89/index.html">
 <meta property="og:site_name" content="Orangutan30 blog">
-<meta property="og:description" content="倚天照海花无数,流水高山心自知">
+<meta property="og:description" content="检索方式分为5种： 导航对象图检索方式：根据已经加载的对象导航到其他对象 OID检索方式：按照对象的OID来检索对象 HQL检索方式：使用面向对象的HQL查询语言 QBC检索方式：使用QBC（Query By Criteria）API来检索对象。这种API封装了基于字符串形式的查询语句，提供了更加面向对象的查询接口。 本地SQL检索方式：使用本地数据库的SQL查询语句。   HQL检索方式1：定义">
 <meta property="og:locale" content="en_CN">
+<meta property="article:published_time" content="2020-01-17T13:48:53.492Z">
+<meta property="article:modified_time" content="2020-01-17T13:51:51.715Z">
 <meta property="article:author" content="Orangutan30">
 <meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
@@ -189,184 +191,199 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-检索方式——HQL检索方式（基础部分）" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      检索方式——HQL检索方式（基础部分）
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/01/17/%E6%A3%80%E7%B4%A2%E6%96%B9%E5%BC%8F%E2%80%94%E2%80%94HQL%E6%A3%80%E7%B4%A2%E6%96%B9%E5%BC%8F%EF%BC%88%E5%9F%BA%E7%A1%80%E9%83%A8%E5%88%86%EF%BC%89/" class="archive-article-date">
+
+        
+        <a href="/2020/01/17/%E6%A3%80%E7%B4%A2%E6%96%B9%E5%BC%8F%E2%80%94%E2%80%94HQL%E6%A3%80%E7%B4%A2%E6%96%B9%E5%BC%8F%EF%BC%88%E5%9F%BA%E7%A1%80%E9%83%A8%E5%88%86%EF%BC%89/" class="archive-article-date">
   	<time datetime="2020-01-17T13:48:53.492Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-17</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/01/17/%E6%A3%80%E7%B4%A2%E6%96%B9%E5%BC%8F%E2%80%94%E2%80%94HQL%E6%A3%80%E7%B4%A2%E6%96%B9%E5%BC%8F%EF%BC%88%E5%9F%BA%E7%A1%80%E9%83%A8%E5%88%86%EF%BC%89/">检索方式——HQL检索方式（基础部分）</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="检索方式分为5种："><a href="#检索方式分为5种：" class="headerlink" title="检索方式分为5种："></a>检索方式分为5种：</h5><ul>
+<li>导航对象图检索方式：根据已经加载的对象导航到其他对象</li>
+<li>OID检索方式：按照对象的OID来检索对象</li>
+<li>HQL检索方式：使用面向对象的HQL查询语言</li>
+<li>QBC检索方式：使用QBC（Query By Criteria）API来检索对象。这种API封装了基于字符串形式的查询语句，提供了更加面向对象的查询接口。</li>
+<li>本地SQL检索方式：使用本地数据库的SQL查询语句。</li>
+</ul>
+<hr>
+<h3 id="HQL检索方式"><a href="#HQL检索方式" class="headerlink" title="HQL检索方式"></a>HQL检索方式</h3><h4 id="1：定义"><a href="#1：定义" class="headerlink" title="1：定义:"></a>1：定义:</h4><p>HQL(Hibernate Query Language) 是面向对象的查询语言, 它和 SQL 查询语言有些相似. 在 Hibernate 提供的各种检索方式中, HQL 是使用最广的一种检索方式.</p>
+<h4 id="2：功能"><a href="#2：功能" class="headerlink" title="2：功能:"></a>2：功能:</h4><ul>
+<li>在查询语句中设定各种查询条件</li>
+<li>支持投影查询, 即仅检索出对象的部分属性</li>
+<li>支持分页查询</li>
+<li>支持连接查询</li>
+<li>支持分组查询, 允许使用 HAVING 和 GROUP BY 关键字</li>
+<li>提供内置聚集函数, 如 sum(), min() 和 max()</li>
+<li>支持子查询</li>
+<li>支持动态绑定参数</li>
+<li>能够调用 用户定义的 SQL 函数或标准的 SQL 函数</li>
+</ul>
+<h4 id="3：使用步骤"><a href="#3：使用步骤" class="headerlink" title="3：使用步骤"></a>3：使用步骤</h4><ul>
+<li>通过 Session 的 createQuery() 方法创建一个 Query 对象, 传入一个 HQL 查询语句. HQL 查询语句中可以包含命名参数</li>
+<li>动态绑定参数 （赋值）</li>
+<li>调用 Query 相关方法执行查询语句.<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1.创建Query对象</span></span><br><span class="line"><span class="comment">//基于位置参数</span></span><br><span class="line">String hql = <span class="string">"FROM Employee e WHERE e.salary &gt; ? and e.email LIKE ? and e.dept = ?"</span> + <span class="string">"ORDER BY e.salary"</span>; <span class="comment">//结果可以用order by 进行排序</span></span><br><span class="line">Query query = session.createQuery(hql);</span><br><span class="line"><span class="comment">//2.绑定参数</span></span><br><span class="line">Department dept = <span class="keyword">new</span> Department();</span><br><span class="line">dept.setID(<span class="number">23</span>);</span><br><span class="line">query.setFloat(<span class="number">0</span>,<span class="number">7000</span>).setString(<span class="number">1</span>,<span class="string">"%A%"</span>).setEntity(<span class="number">2</span>,dept);<span class="comment">//方法链的编程风格,参数可以是实体类类型</span></span><br><span class="line"><span class="comment">//3.执行查询</span></span><br><span class="line">List&lt;Employee&gt; emps = query.list();</span><br><span class="line">System.out.println(emps.size());</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1.创建Query对象</span></span><br><span class="line"><span class="comment">//基于命名参数</span></span><br><span class="line">String hql = <span class="string">"FROM Employee e WHERE e.salary &gt; :sal and e.email LIKE :email"</span>;</span><br><span class="line">Query query = session.createQuery(hql);</span><br><span class="line"><span class="comment">//2.绑定参数</span></span><br><span class="line">query.setFloat(<span class="string">"sal"</span>,<span class="number">7000</span>).setString(<span class="string">"email"</span>,<span class="string">"%A%"</span>);<span class="comment">//方法链的编程风格</span></span><br><span class="line"><span class="comment">//3.执行查询</span></span><br><span class="line">List&lt;Employee&gt; emps = query.list();</span><br><span class="line">System.out.println(emps.size());</span><br></pre></td></tr></table></figure>
 
-        <div class="article-info info-on-right">
-          
-          
+</li>
+</ul>
+<h4 id="4：特点"><a href="#4：特点" class="headerlink" title="4：特点"></a>4：特点</h4><p>Qurey 接口支持方法链编程风格, 它的 setXxx() 方法返回自身实例, 而不是 void 类型</p>
+<h4 id="5：HQL-vs-SQL"><a href="#5：HQL-vs-SQL" class="headerlink" title="5：HQL vs SQL"></a>5：HQL vs SQL</h4><ul>
+<li>HQL 查询语句是面向对象的, Hibernate 负责解析 HQL 查询语句, 然后根据对象-关系映射文件中的映射信息, 把 HQL 查询语句翻译成相应的 SQL 语句. HQL 查询语句中的主体是域模型中的类及类的属性</li>
+<li>HQL 查询语句是面向对象的, Hibernate 负责解析 HQL 查询语句, 然后根据对象-关系映射文件中的映射信息, 把 HQL 查询语句翻译成相应的 SQL 语句. HQL 查询语句中的主体是域模型中的类及类的属性</li>
+</ul>
+<hr>
+<h4 id="6-如何绑定参数"><a href="#6-如何绑定参数" class="headerlink" title="6:如何绑定参数"></a>6:如何绑定参数</h4><p>Hibernate 的参数绑定机制依赖于 JDBC API 中的 PreparedStatement 的预定义 SQL 语句功能。HQL 的参数绑定由两种形式:</p>
+<ul>
+<li>按参数名字绑定: 在 HQL 查询语句中定义命名参数, 命名参数以 “:” 开头</li>
+<li>按参数位置绑定: 在 HQL 查询语句中用 “?” 来定义参数位置</li>
+</ul>
+<p>相关方法:</p>
+<ul>
+<li>setEntity(): 把参数与一个持久化类绑定</li>
+<li>setParameter(): 绑定任意类型的参数. 该方法的第三个参数显式指定 Hibernate 映射类型</li>
+</ul>
 
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/01/17/%E6%A3%80%E7%B4%A2%E6%96%B9%E5%BC%8F%E2%80%94%E2%80%94HQL%E6%A3%80%E7%B4%A2%E6%96%B9%E5%BC%8F%EF%BC%88%E5%9F%BA%E7%A1%80%E9%83%A8%E5%88%86%EF%BC%89/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/01/17/%E6%A3%80%E7%B4%A2%E6%96%B9%E5%BC%8F%E2%80%94%E2%80%94HQL%E6%A3%80%E7%B4%A2%E6%96%B9%E5%BC%8F%EF%BC%884%E4%B8%AA%E6%9F%A5%E8%AF%A2%E6%96%B9%E5%BC%8F%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2020-01-17T13:47:26.924Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-17</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/01/17/%E6%A3%80%E7%B4%A2%E6%96%B9%E5%BC%8F%E2%80%94%E2%80%94HQL%E6%A3%80%E7%B4%A2%E6%96%B9%E5%BC%8F%EF%BC%884%E4%B8%AA%E6%9F%A5%E8%AF%A2%E6%96%B9%E5%BC%8F%EF%BC%89/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">检索方式——HQL检索方式（4个查询方式）</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/01/17/%E6%A3%80%E7%B4%A2%E6%96%B9%E5%BC%8F%E2%80%94%E2%80%94HQL%E6%A3%80%E7%B4%A2%E6%96%B9%E5%BC%8F%EF%BC%884%E4%B8%AA%E6%9F%A5%E8%AF%A2%E6%96%B9%E5%BC%8F%EF%BC%89/">检索方式——HQL检索方式（4个查询方式）</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/01/16/%E6%A3%80%E7%B4%A2%E7%AD%96%E7%95%A5%E5%B0%8F%E7%BB%93/" class="archive-article-date">
-  	<time datetime="2020-01-16T13:46:21.479Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/01/16/%E6%A3%80%E7%B4%A2%E7%AD%96%E7%95%A5%E5%B0%8F%E7%BB%93/">检索策略小结</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/01/16/%E5%A4%9A%E5%AF%B9%E4%B8%80%E5%92%8C%E4%B8%80%E5%AF%B9%E4%B8%80%E5%85%B3%E8%81%94%E7%9A%84%E6%A3%80%E7%B4%A2%E7%AD%96%E7%95%A5/" class="archive-article-date">
-  	<time datetime="2020-01-16T13:46:09.280Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/01/16/%E5%A4%9A%E5%AF%B9%E4%B8%80%E5%92%8C%E4%B8%80%E5%AF%B9%E4%B8%80%E5%85%B3%E8%81%94%E7%9A%84%E6%A3%80%E7%B4%A2%E7%AD%96%E7%95%A5/">多对一和一对一关联的检索策略</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/01/16/%E4%B8%80%E5%AF%B9%E5%A4%9A%E5%92%8C%E5%A4%9A%E5%AF%B9%E5%A4%9A%E7%9A%84%E6%A3%80%E7%B4%A2%E7%AD%96%E7%95%A5/" class="archive-article-date">
-  	<time datetime="2020-01-16T06:50:18.725Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/01/16/%E4%B8%80%E5%AF%B9%E5%A4%9A%E5%92%8C%E5%A4%9A%E5%AF%B9%E5%A4%9A%E7%9A%84%E6%A3%80%E7%B4%A2%E7%AD%96%E7%95%A5/">一对多和多对多的检索策略</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/01/16/%E7%B1%BB%E7%BA%A7%E5%88%AB%E7%9A%84%E6%A3%80%E7%B4%A2%E7%AD%96%E7%95%A5/" class="archive-article-date">
-  	<time datetime="2020-01-16T06:43:04.411Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/01/16/%E7%B1%BB%E7%BA%A7%E5%88%AB%E7%9A%84%E6%A3%80%E7%B4%A2%E7%AD%96%E7%95%A5/">类级别的检索策略</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -389,8 +406,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

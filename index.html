@@ -191,6 +191,203 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-检索方式——HQL检索方式（基础部分）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/01/17/%E6%A3%80%E7%B4%A2%E6%96%B9%E5%BC%8F%E2%80%94%E2%80%94HQL%E6%A3%80%E7%B4%A2%E6%96%B9%E5%BC%8F%EF%BC%88%E5%9F%BA%E7%A1%80%E9%83%A8%E5%88%86%EF%BC%89/">检索方式——HQL检索方式（基础部分）</a>
+    </h1>
+  
+
+        
+        <a href="/2020/01/17/%E6%A3%80%E7%B4%A2%E6%96%B9%E5%BC%8F%E2%80%94%E2%80%94HQL%E6%A3%80%E7%B4%A2%E6%96%B9%E5%BC%8F%EF%BC%88%E5%9F%BA%E7%A1%80%E9%83%A8%E5%88%86%EF%BC%89/" class="archive-article-date">
+  	<time datetime="2020-01-17T13:48:53.492Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="检索方式分为5种："><a href="#检索方式分为5种：" class="headerlink" title="检索方式分为5种："></a>检索方式分为5种：</h5><ul>
+<li>导航对象图检索方式：根据已经加载的对象导航到其他对象</li>
+<li>OID检索方式：按照对象的OID来检索对象</li>
+<li>HQL检索方式：使用面向对象的HQL查询语言</li>
+<li>QBC检索方式：使用QBC（Query By Criteria）API来检索对象。这种API封装了基于字符串形式的查询语句，提供了更加面向对象的查询接口。</li>
+<li>本地SQL检索方式：使用本地数据库的SQL查询语句。</li>
+</ul>
+<hr>
+<h3 id="HQL检索方式"><a href="#HQL检索方式" class="headerlink" title="HQL检索方式"></a>HQL检索方式</h3><h4 id="1：定义"><a href="#1：定义" class="headerlink" title="1：定义:"></a>1：定义:</h4><p>HQL(Hibernate Query Language) 是面向对象的查询语言, 它和 SQL 查询语言有些相似. 在 Hibernate 提供的各种检索方式中, HQL 是使用最广的一种检索方式.</p>
+<h4 id="2：功能"><a href="#2：功能" class="headerlink" title="2：功能:"></a>2：功能:</h4><ul>
+<li>在查询语句中设定各种查询条件</li>
+<li>支持投影查询, 即仅检索出对象的部分属性</li>
+<li>支持分页查询</li>
+<li>支持连接查询</li>
+<li>支持分组查询, 允许使用 HAVING 和 GROUP BY 关键字</li>
+<li>提供内置聚集函数, 如 sum(), min() 和 max()</li>
+<li>支持子查询</li>
+<li>支持动态绑定参数</li>
+<li>能够调用 用户定义的 SQL 函数或标准的 SQL 函数</li>
+</ul>
+<h4 id="3：使用步骤"><a href="#3：使用步骤" class="headerlink" title="3：使用步骤"></a>3：使用步骤</h4><ul>
+<li>通过 Session 的 createQuery() 方法创建一个 Query 对象, 传入一个 HQL 查询语句. HQL 查询语句中可以包含命名参数</li>
+<li>动态绑定参数 （赋值）</li>
+<li>调用 Query 相关方法执行查询语句.<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1.创建Query对象</span></span><br><span class="line"><span class="comment">//基于位置参数</span></span><br><span class="line">String hql = <span class="string">"FROM Employee e WHERE e.salary &gt; ? and e.email LIKE ? and e.dept = ?"</span> + <span class="string">"ORDER BY e.salary"</span>; <span class="comment">//结果可以用order by 进行排序</span></span><br><span class="line">Query query = session.createQuery(hql);</span><br><span class="line"><span class="comment">//2.绑定参数</span></span><br><span class="line">Department dept = <span class="keyword">new</span> Department();</span><br><span class="line">dept.setID(<span class="number">23</span>);</span><br><span class="line">query.setFloat(<span class="number">0</span>,<span class="number">7000</span>).setString(<span class="number">1</span>,<span class="string">"%A%"</span>).setEntity(<span class="number">2</span>,dept);<span class="comment">//方法链的编程风格,参数可以是实体类类型</span></span><br><span class="line"><span class="comment">//3.执行查询</span></span><br><span class="line">List&lt;Employee&gt; emps = query.list();</span><br><span class="line">System.out.println(emps.size());</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1.创建Query对象</span></span><br><span class="line"><span class="comment">//基于命名参数</span></span><br><span class="line">String hql = <span class="string">"FROM Employee e WHERE e.salary &gt; :sal and e.email LIKE :email"</span>;</span><br><span class="line">Query query = session.createQuery(hql);</span><br><span class="line"><span class="comment">//2.绑定参数</span></span><br><span class="line">query.setFloat(<span class="string">"sal"</span>,<span class="number">7000</span>).setString(<span class="string">"email"</span>,<span class="string">"%A%"</span>);<span class="comment">//方法链的编程风格</span></span><br><span class="line"><span class="comment">//3.执行查询</span></span><br><span class="line">List&lt;Employee&gt; emps = query.list();</span><br><span class="line">System.out.println(emps.size());</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h4 id="4：特点"><a href="#4：特点" class="headerlink" title="4：特点"></a>4：特点</h4><p>Qurey 接口支持方法链编程风格, 它的 setXxx() 方法返回自身实例, 而不是 void 类型</p>
+<h4 id="5：HQL-vs-SQL"><a href="#5：HQL-vs-SQL" class="headerlink" title="5：HQL vs SQL"></a>5：HQL vs SQL</h4><ul>
+<li>HQL 查询语句是面向对象的, Hibernate 负责解析 HQL 查询语句, 然后根据对象-关系映射文件中的映射信息, 把 HQL 查询语句翻译成相应的 SQL 语句. HQL 查询语句中的主体是域模型中的类及类的属性</li>
+<li>HQL 查询语句是面向对象的, Hibernate 负责解析 HQL 查询语句, 然后根据对象-关系映射文件中的映射信息, 把 HQL 查询语句翻译成相应的 SQL 语句. HQL 查询语句中的主体是域模型中的类及类的属性</li>
+</ul>
+<hr>
+<h4 id="6-如何绑定参数"><a href="#6-如何绑定参数" class="headerlink" title="6:如何绑定参数"></a>6:如何绑定参数</h4><p>Hibernate 的参数绑定机制依赖于 JDBC API 中的 PreparedStatement 的预定义 SQL 语句功能。HQL 的参数绑定由两种形式:</p>
+<ul>
+<li>按参数名字绑定: 在 HQL 查询语句中定义命名参数, 命名参数以 “:” 开头</li>
+<li>按参数位置绑定: 在 HQL 查询语句中用 “?” 来定义参数位置</li>
+</ul>
+<p>相关方法:</p>
+<ul>
+<li>setEntity(): 把参数与一个持久化类绑定</li>
+<li>setParameter(): 绑定任意类型的参数. 该方法的第三个参数显式指定 Hibernate 映射类型</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/01/17/%E6%A3%80%E7%B4%A2%E6%96%B9%E5%BC%8F%E2%80%94%E2%80%94HQL%E6%A3%80%E7%B4%A2%E6%96%B9%E5%BC%8F%EF%BC%88%E5%9F%BA%E7%A1%80%E9%83%A8%E5%88%86%EF%BC%89/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-检索方式——HQL检索方式（4个查询方式）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/01/17/%E6%A3%80%E7%B4%A2%E6%96%B9%E5%BC%8F%E2%80%94%E2%80%94HQL%E6%A3%80%E7%B4%A2%E6%96%B9%E5%BC%8F%EF%BC%884%E4%B8%AA%E6%9F%A5%E8%AF%A2%E6%96%B9%E5%BC%8F%EF%BC%89/">检索方式——HQL检索方式（4个查询方式）</a>
+    </h1>
+  
+
+        
+        <a href="/2020/01/17/%E6%A3%80%E7%B4%A2%E6%96%B9%E5%BC%8F%E2%80%94%E2%80%94HQL%E6%A3%80%E7%B4%A2%E6%96%B9%E5%BC%8F%EF%BC%884%E4%B8%AA%E6%9F%A5%E8%AF%A2%E6%96%B9%E5%BC%8F%EF%BC%89/" class="archive-article-date">
+  	<time datetime="2020-01-17T13:47:26.924Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="4个查询方式："><a href="#4个查询方式：" class="headerlink" title="4个查询方式："></a>4个查询方式：</h3><ul>
+<li>分页查询</li>
+<li>命名查询</li>
+<li>投影查询</li>
+<li>报表查询</li>
+</ul>
+<hr>
+<h3 id="HQL检索方式——分页查询（常用）"><a href="#HQL检索方式——分页查询（常用）" class="headerlink" title="HQL检索方式——分页查询（常用）"></a>HQL检索方式——分页查询（常用）</h3><h4 id="分页查询的两个方法"><a href="#分页查询的两个方法" class="headerlink" title="分页查询的两个方法:"></a>分页查询的两个方法:</h4><ul>
+<li><strong>setFirstResult(int firstResult):</strong> 设定从哪一个对象开始检索, 参数 firstResult 表示这个对象在查询结果中的索引位置, 索引位置的起始值为 0. 默认情况下, Query 从查询结果中的第一个对象开始检索</li>
+<li><strong>setMaxResults(int maxResults):</strong> 设定一次最多检索出的对象的数目. 在默认情况下, Query 和 Criteria 接口检索出查询结果中所有的对象<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testPageQuery</span><span class="params">()</span></span>&#123;</span><br><span class="line">        String hql = <span class="string">"FROM Employee"</span>;</span><br><span class="line">        Query query = session.createQuery(hql);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> pageNo = <span class="number">3</span>; <span class="comment">//3页</span></span><br><span class="line">        <span class="keyword">int</span> pageSize = <span class="number">5</span>;<span class="comment">//每页显示5条记录</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//查询第三页的list</span></span><br><span class="line">        List&lt;Employee&gt; emps = query.setFirstResult((pageNo - <span class="number">1</span>) * pageSize)<span class="comment">//第三页是10-14</span></span><br><span class="line">                                    .setMaxResults(pageSize)</span><br><span class="line">                                    .list();</span><br><span class="line">        System.out.println(emps);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h3 id="HQL检索方式——命名查询"><a href="#HQL检索方式——命名查询" class="headerlink" title="HQL检索方式——命名查询"></a>HQL检索方式——命名查询</h3><p>Hibernate允许在映射文件中通过<code>&lt;query&gt;</code>定义hql查询语句,它与<code>&lt;class&gt;</code>元素并列。<br>在程序中，可以通过session的getNamedQuery()方法来获取查询语句对应的Query对象。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//映射文件部分</span></span><br><span class="line"><span class="comment">//CDATA防止 &lt; &gt;与标签符号混淆</span></span><br><span class="line">&lt;query name="hql"&gt;&lt;![CDATA[FROM Employee e WHERE e.salary &gt; :minSal AND e.salary &lt; :maxSal]]&gt;&lt;/query&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">//程序部分</span></span><br><span class="line">  <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testNamedQuery</span><span class="params">()</span></span>&#123;</span><br><span class="line">        Query query = session.getNamedQuery(<span class="string">"hql"</span>);</span><br><span class="line"></span><br><span class="line">        List&lt;Employee&gt; emps = (List&lt;Employee&gt;) query.setFloat(<span class="string">"minSal"</span>,<span class="number">5000</span>)</span><br><span class="line">                                                    .setFloat(<span class="string">"maxSal"</span>,<span class="number">10000</span>)</span><br><span class="line">                                                    .list();</span><br><span class="line">        System.out.println(emps.size());</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="HQL检索方式——投影查询"><a href="#HQL检索方式——投影查询" class="headerlink" title="HQL检索方式——投影查询"></a>HQL检索方式——投影查询</h3><p>查询结果仅包含实体的部分属性。通过select关键字实现。Query 的 list() 方法返回的集合中包含的是数组类型的元素, 每个对象数组代表查询结果的一条记录。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testFieldQuery</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//注意：e.属性的属性名要与映射文件的name一致。</span></span><br><span class="line">        String hql = <span class="string">"SELECT e.email, e.salary, e.dpt FROM Employee e WHERE e.dpt = :dept"</span>;</span><br><span class="line">        Query query = session.createQuery(hql);</span><br><span class="line"></span><br><span class="line">        Department dept = <span class="keyword">new</span> Department();</span><br><span class="line">        dept.setId(<span class="number">80</span>);</span><br><span class="line"></span><br><span class="line">        List&lt;Object[]&gt; result = query.setEntity(<span class="string">"dept"</span>,dept).list();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(Object[] objs : result)&#123;</span><br><span class="line">            System.out.println(Arrays.asList(objs));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/* 返回结果为数组</span></span><br><span class="line"><span class="comment">    [JRUSSEL, 14000.0, Department&#123;id=80, name='Sales'&#125;]</span></span><br><span class="line"><span class="comment">    [CJOHNSON, 6200.0, Department&#123;id=80, name='Sales'&#125;]</span></span><br><span class="line"><span class="comment">    [AERRAZUR, 12000.0, Department&#123;id=80, name='Sales'&#125;]</span></span><br><span class="line"><span class="comment">    [GCAMBRAU, 11000.0, Department&#123;id=80, name='Sales'&#125;]</span></span><br><span class="line"><span class="comment">    [EZLOTKEY, 10500.0, Department&#123;id=80, name='Sales'&#125;]</span></span><br><span class="line"><span class="comment">    [PTUCKER, 10000.0, Department&#123;id=80, name='Sales'&#125;]</span></span><br><span class="line"><span class="comment">    [DBERNSTE, 9500.0, Department&#123;id=80, name='Sales'&#125;]</span></span><br><span class="line"><span class="comment">    */</span></span><br></pre></td></tr></table></figure>
+<p>为了方便使用，我们可以在持久化类中定义一个构造器来包装投影查询返回的记录，使程序代码能完全运用面向对象的语义来访问查询结果集。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testFieldQuery2</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//要在Employee类下定义带相应参数的构造器，sql语句连接时注意添加空格</span></span><br><span class="line">        String hql = <span class="string">"SELECT new Employee(e.email, e.salary, e.dpt) "</span></span><br><span class="line">                    +<span class="string">"FROM Employee e"</span></span><br><span class="line">                    +<span class="string">" WHERE e.dpt = :dept"</span>;</span><br><span class="line">        Query query = session.createQuery(hql);</span><br><span class="line"></span><br><span class="line">        Department dept = <span class="keyword">new</span> Department();</span><br><span class="line">        dept.setId(<span class="number">80</span>);</span><br><span class="line"></span><br><span class="line">        List&lt;Employee&gt; result = query.setEntity(<span class="string">"dept"</span>,dept).list();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(Employee emps : result)&#123;</span><br><span class="line">            System.out.println(emps.getId()+<span class="string">","</span>+emps.getEmail()+<span class="string">","</span>+emps.getSalary()+<span class="string">","</span>+emps.getDpt());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/* 返回结果为对象的集合</span></span><br><span class="line"><span class="comment">    null,JRUSSEL,14000.0,Department&#123;id=80, name='Sales'&#125;</span></span><br><span class="line"><span class="comment">    null,KPARTNER,13500.0,Department&#123;id=80, name='Sales'&#125;</span></span><br><span class="line"><span class="comment">    null,AERRAZUR,12000.0,Department&#123;id=80, name='Sales'&#125;</span></span><br><span class="line"><span class="comment">    null,GCAMBRAU,11000.0,Department&#123;id=80, name='Sales'&#125;</span></span><br><span class="line"><span class="comment">    null,EZLOTKEY,10500.0,Department&#123;id=80, name='Sales'&#125;</span></span><br><span class="line"><span class="comment">    null,PTUCKER,10000.0,Department&#123;id=80, name='Sales'&#125;</span></span><br><span class="line"><span class="comment">    null,DBERNSTE,9500.0,Department&#123;id=80, name='Sales'&#125;</span></span><br><span class="line"><span class="comment">    */</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="HQL检索方式——报表查询"><a href="#HQL检索方式——报表查询" class="headerlink" title="HQL检索方式——报表查询"></a>HQL检索方式——报表查询</h3><p>报表查询用于对数据分组和统计, 与 SQL 一样, HQL 利用 GROUP BY 关键字对数据分组, 用 HAVING 关键字对分组数据设定约束条件。<br>在 HQL 查询语句中可以调用以下聚集函数</p>
+<ul>
+<li>count()</li>
+<li>min()</li>
+<li>max()</li>
+<li>sum()</li>
+<li>avg()<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testGroupBy</span><span class="params">()</span></span>&#123;</span><br><span class="line">        String hql = <span class="string">"SELECT min(e.salary),max(e.salary) "</span></span><br><span class="line">                    +<span class="string">"FROM Employee e "</span></span><br><span class="line">                    +<span class="string">"GROUP BY e.dpt "</span></span><br><span class="line">                    +<span class="string">"HAVING min(salary) &gt; :minSal"</span>;</span><br><span class="line">        Query query = session.createQuery(hql).setFloat(<span class="string">"minSal"</span>,<span class="number">8000</span>);</span><br><span class="line"></span><br><span class="line">        List&lt;Object[]&gt; result = query.list();</span><br><span class="line">        <span class="keyword">for</span>(Object[] objs : result)&#123;</span><br><span class="line">            System.out.println(Arrays.asList(objs));</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/01/17/%E6%A3%80%E7%B4%A2%E6%96%B9%E5%BC%8F%E2%80%94%E2%80%94HQL%E6%A3%80%E7%B4%A2%E6%96%B9%E5%BC%8F%EF%BC%884%E4%B8%AA%E6%9F%A5%E8%AF%A2%E6%96%B9%E5%BC%8F%EF%BC%89/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-检索策略小结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
