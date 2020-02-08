@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>检索方式——HQL检索方式（4个查询方式） | Orangutan30 blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="4个查询方式： 分页查询 命名查询 投影查询 报表查询   HQL检索方式——分页查询（常用）分页查询的两个方法: setFirstResult(int firstResult): 设定从哪一个对象开始检索, 参数 firstResult 表示这个对象在查询结果中的索引位置, 索引位置的起始值为 0. 默认情况下, Query 从查询结果中的第一个对象开始检索 setMaxResults(int">
+  <meta name="description" content="4个查询方式： 分页查询 命名查询 投影查询 报表查询">
 <meta property="og:type" content="article">
 <meta property="og:title" content="检索方式——HQL检索方式（4个查询方式）">
 <meta property="og:url" content="http://yoursite.com/2020/01/17/%E6%A3%80%E7%B4%A2%E6%96%B9%E5%BC%8F%E2%80%94%E2%80%94HQL%E6%A3%80%E7%B4%A2%E6%96%B9%E5%BC%8F%EF%BC%884%E4%B8%AA%E6%9F%A5%E8%AF%A2%E6%96%B9%E5%BC%8F%EF%BC%89/index.html">
 <meta property="og:site_name" content="Orangutan30 blog">
-<meta property="og:description" content="4个查询方式： 分页查询 命名查询 投影查询 报表查询   HQL检索方式——分页查询（常用）分页查询的两个方法: setFirstResult(int firstResult): 设定从哪一个对象开始检索, 参数 firstResult 表示这个对象在查询结果中的索引位置, 索引位置的起始值为 0. 默认情况下, Query 从查询结果中的第一个对象开始检索 setMaxResults(int">
+<meta property="og:description" content="4个查询方式： 分页查询 命名查询 投影查询 报表查询">
 <meta property="og:locale" content="en_CN">
 <meta property="article:published_time" content="2020-01-17T13:47:26.924Z">
-<meta property="article:modified_time" content="2020-01-17T13:51:23.330Z">
+<meta property="article:modified_time" content="2020-02-08T04:19:40.591Z">
 <meta property="article:author" content="Orangutan30">
 <meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
@@ -218,6 +218,8 @@
 <li>报表查询</li>
 </ul>
 <hr>
+<a id="more"></a>
+
 <h3 id="HQL检索方式——分页查询（常用）"><a href="#HQL检索方式——分页查询（常用）" class="headerlink" title="HQL检索方式——分页查询（常用）"></a>HQL检索方式——分页查询（常用）</h3><h4 id="分页查询的两个方法"><a href="#分页查询的两个方法" class="headerlink" title="分页查询的两个方法:"></a>分页查询的两个方法:</h4><ul>
 <li><strong>setFirstResult(int firstResult):</strong> 设定从哪一个对象开始检索, 参数 firstResult 表示这个对象在查询结果中的索引位置, 索引位置的起始值为 0. 默认情况下, Query 从查询结果中的第一个对象开始检索</li>
 <li><strong>setMaxResults(int maxResults):</strong> 设定一次最多检索出的对象的数目. 在默认情况下, Query 和 Criteria 接口检索出查询结果中所有的对象<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testPageQuery</span><span class="params">()</span></span>&#123;</span><br><span class="line">        String hql = <span class="string">"FROM Employee"</span>;</span><br><span class="line">        Query query = session.createQuery(hql);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> pageNo = <span class="number">3</span>; <span class="comment">//3页</span></span><br><span class="line">        <span class="keyword">int</span> pageSize = <span class="number">5</span>;<span class="comment">//每页显示5条记录</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//查询第三页的list</span></span><br><span class="line">        List&lt;Employee&gt; emps = query.setFirstResult((pageNo - <span class="number">1</span>) * pageSize)<span class="comment">//第三页是10-14</span></span><br><span class="line">                                    .setMaxResults(pageSize)</span><br><span class="line">                                    .list();</span><br><span class="line">        System.out.println(emps);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
