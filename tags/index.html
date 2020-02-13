@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Hibernate -- 管理Session | Orangutan30 blog</title>
+  <title>tags | Orangutan30 blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Hibernate  自身提供了三种管理 Session 对象的方法: Session 对象的生命周期与本地线程绑定 Session 对象的生命周期与 JTA 事务绑定 Hibernate 委托程序管理 Session 对象的生命周期  在 Hibernate 的配置文件中, hibernate.current_session_context_class 属性用于指定 Session 管理方式,">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Hibernate -- 管理Session">
-<meta property="og:url" content="http://yoursite.com/2020/02/13/Hibernate_%E7%AE%A1%E7%90%86Session/index.html">
+  <meta name="description" content="倚天照海花无数,流水高山心自知">
+<meta property="og:type" content="website">
+<meta property="og:title" content="tags">
+<meta property="og:url" content="http://yoursite.com/tags/index.html">
 <meta property="og:site_name" content="Orangutan30 blog">
-<meta property="og:description" content="Hibernate  自身提供了三种管理 Session 对象的方法: Session 对象的生命周期与本地线程绑定 Session 对象的生命周期与 JTA 事务绑定 Hibernate 委托程序管理 Session 对象的生命周期  在 Hibernate 的配置文件中, hibernate.current_session_context_class 属性用于指定 Session 管理方式,">
+<meta property="og:description" content="倚天照海花无数,流水高山心自知">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-02-13T08:14:10.978Z">
-<meta property="article:modified_time" content="2020-02-13T08:24:51.079Z">
+<meta property="article:published_time" content="2020-02-13T10:21:11.000Z">
+<meta property="article:modified_time" content="2020-02-13T10:21:54.811Z">
 <meta property="article:author" content="Orangutan30">
 <meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
@@ -167,41 +167,27 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Hibernate_管理Session" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="page-" class="article article-type-page " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Hibernate -- 管理Session
+      tags
     </h1>
   
 
         
-        <a href="/2020/02/13/Hibernate_%E7%AE%A1%E7%90%86Session/" class="archive-article-date">
-  	<time datetime="2020-02-13T08:14:10.978Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-13</time>
+        <a href="/tags/index.html" class="archive-article-date">
+  	<time datetime="2020-02-13T10:21:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-13</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="Hibernate-自身提供了三种管理-Session-对象的方法"><a href="#Hibernate-自身提供了三种管理-Session-对象的方法" class="headerlink" title="Hibernate  自身提供了三种管理 Session 对象的方法:"></a>Hibernate  自身提供了三种管理 Session 对象的方法:</h4><ol>
-<li>Session 对象的生命周期与本地线程绑定</li>
-<li>Session 对象的生命周期与 JTA 事务绑定</li>
-<li>Hibernate 委托程序管理 Session 对象的生命周期</li>
-</ol>
-<p>在 Hibernate 的配置文件中, hibernate.current_session_context_class 属性用于指定 Session 管理方式, 可选值包括:</p>
-<h5 id="1-thread-Session-对象的生命周期与本地线程绑定"><a href="#1-thread-Session-对象的生命周期与本地线程绑定" class="headerlink" title="1. thread: Session 对象的生命周期与本地线程绑定"></a>1. thread: Session 对象的生命周期与本地线程绑定</h5><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 配置管理Session的方式--&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"current_session_context_class"</span>&gt;</span>thread<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>   如果hibernate.current_session_context_class 属性值设为 thread, Hibernate 就会按照与本地线程绑定的方式来管理 Session：</p>
-<ul>
-<li>当一个线程(threadA)第一次调用 SessionFactory 对象的 getCurrentSession() 方法时, 该方法会创建一个新的 Session(sessionA) 对象, 把该对象与 threadA 绑定, 并将 sessionA 返回</li>
-<li>当 threadA 再次调用 SessionFactory 对象的 getCurrentSession() 方法时, 该方法将返回 sessionA 对象</li>
-<li>当 threadA 提交 sessionA 对象关联的事务时, Hibernate 会自动flush sessionA 对象的缓存, 然后提交事务, 关闭 sessionA 对象. 当 threadA 撤销 sessionA 对象关联的事务时, 也会自动关闭 sessionA 对象</li>
-<li>若 threadA 再次调用 SessionFactory 对象的 getCurrentSession() 方法时, 该方法会又创建一个新的 Session(sessionB) 对象, 把该对象与 threadA 绑定, 并将 sessionB 返回</li>
-</ul>
-<h5 id="2-jta-Session-对象的生命周期与-JTA-事务绑定"><a href="#2-jta-Session-对象的生命周期与-JTA-事务绑定" class="headerlink" title="2. jta*: Session 对象的生命周期与 JTA 事务绑定"></a>2. jta*: Session 对象的生命周期与 JTA 事务绑定</h5><h5 id="3-managed-Hibernate-委托程序来管理-Session-对象的生命周期"><a href="#3-managed-Hibernate-委托程序来管理-Session-对象的生命周期" class="headerlink" title="3. managed: Hibernate 委托程序来管理 Session 对象的生命周期"></a>3. managed: Hibernate 委托程序来管理 Session 对象的生命周期</h5>
+        
       
 
       
@@ -231,17 +217,6 @@
       
       
       
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/hibernate//" class="article-tag-list-link color5">hibernate</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
 
       
 
@@ -291,7 +266,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/02/13/Hibernate_%E7%AE%A1%E7%90%86Session/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/tags/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -303,25 +278,6 @@
 </article>
 
   
-<nav id="article-nav">
-  
-    <a href="/2020/02/13/Hibernate_%E7%BC%93%E5%AD%98/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Hibernate -- Hibernate二级缓存
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2020/02/13/Hibernate_%E6%89%B9%E9%87%8F%E5%A4%84%E7%90%86%E6%95%B0%E6%8D%AE/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Hibernate -- 批量处理数据</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -372,7 +328,7 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
