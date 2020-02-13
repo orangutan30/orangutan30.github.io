@@ -416,9 +416,12 @@
 <li>如果程序加载一个对象的目的是为了访问它的属性，这个时候我们采用<u>立即检索</u>。</li>
 <li>如果程序加载一个对象的目的仅是为了获得它的引用，则采用<u>延迟加载</u>。注意可能出现懒加载异常！</li>
 <li>lazy属性<em>仅对<u>load()</u>方法有效方法有效</em>。<u>Session的get()和Query的list()方法在类级别只能使用立即检索策略</u>。</li>
-<li>class元素属性为true时，load()方法不会执行查询数据表的select语句，仅返回代理对象的实例，该实例有如下特征：<pre><code>1. 由 Hibernate 在运行时采用 CGLIB 工具动态生成
-2. Hibernate 创建代理类实例时, 仅初始化其 OID 属性
-3.在第一次访问代理类实例的非 OID 属性时, Hibernate 会初始化代理类实例</code></pre></li>
+<li>class元素属性为true时，load()方法不会执行查询数据表的select语句，仅返回代理对象的实例，该实例有如下特征：<ol>
+<li>由 Hibernate 在运行时采用 CGLIB 工具动态生成</li>
+<li>Hibernate 创建代理类实例时, 仅初始化其 OID 属性</li>
+<li>在第一次访问代理类实例的非 OID 属性时, Hibernate 会初始化代理类实例</li>
+</ol>
+</li>
 </ul>
 <hr>
 <h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><ol>
