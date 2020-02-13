@@ -16,7 +16,7 @@
 <meta property="og:description" content="缓存(Cache): 计算机领域非常通用的概念。它介于应用程序和永久性数据存储源(如硬盘上的文件或者数据库)之间，其作用是降低应用程序直接读写永久性数据存储源的频率，从而提高应用的运行性能。缓存中的数据是数据存储源中数据的拷贝。缓存的物理介质通常是内存Hibernate中提供了两个级别的缓存 第一级别的缓存是 Session 级别的缓存，它是属于事务范围的缓存。这一级别的缓存由 hibernate">
 <meta property="og:locale" content="en_CN">
 <meta property="article:published_time" content="2020-02-13T08:14:25.714Z">
-<meta property="article:modified_time" content="2020-02-13T08:24:59.427Z">
+<meta property="article:modified_time" content="2020-02-13T08:59:37.686Z">
 <meta property="article:author" content="Orangutan30">
 <meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
@@ -216,6 +216,8 @@
 <li>第二级别的缓存是 SessionFactory 级别的缓存，它是属于进程范围的缓存</li>
 </ul>
 <hr>
+<a id="more"></a>
+
 <h3 id="SessionFactory-级别的缓存"><a href="#SessionFactory-级别的缓存" class="headerlink" title="SessionFactory 级别的缓存"></a>SessionFactory 级别的缓存</h3><h4 id="SessionFactory-的缓存可以分为两类"><a href="#SessionFactory-的缓存可以分为两类" class="headerlink" title="SessionFactory 的缓存可以分为两类:"></a>SessionFactory 的缓存可以分为两类:</h4><ul>
 <li><strong>内置缓存</strong>: Hibernate 自带的, 不可卸载. 通常在 Hibernate 的初始化阶段, Hibernate 会把映射元数据和预定义的 SQL 语句放到 SessionFactory 的缓存中, 映射元数据是映射文件中数据（.hbm.xml 文件中的数据）的复制. 该内置缓存是只读的.</li>
 <li><strong>外置缓存(二级缓存)</strong>: <font color=red>一个可配置的缓存插件</font>. 在默认情况下, SessionFactory 不会启用这个缓存插件. 外置缓存中的数据是数据库数据的复制, 外置缓存的物理介质可以是内存或硬盘</li>
