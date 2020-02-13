@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>类级别的检索策略 | Orangutan30 blog</title>
+  <title>Hibernate -- 一对多和多对多的检索策略 | Orangutan30 blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="类级别的检索策略可以通过&lt;class&gt;元素的lazy属性进行设置&gt;lazy属性进行设置">
+  <meta name="description" content="在映射文件中，用&lt;set&gt;元素的来配置 一对多关联 和 多对多关联关系,有lazy、fetch、batch-size三个属性。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="类级别的检索策略">
-<meta property="og:url" content="http://yoursite.com/2020/01/16/%E7%B1%BB%E7%BA%A7%E5%88%AB%E7%9A%84%E6%A3%80%E7%B4%A2%E7%AD%96%E7%95%A5/index.html">
+<meta property="og:title" content="Hibernate -- 一对多和多对多的检索策略">
+<meta property="og:url" content="http://yoursite.com/2020/01/16/Hibernate-%E4%B8%80%E5%AF%B9%E5%A4%9A%E5%92%8C%E5%A4%9A%E5%AF%B9%E5%A4%9A%E7%9A%84%E6%A3%80%E7%B4%A2%E7%AD%96%E7%95%A5/index.html">
 <meta property="og:site_name" content="Orangutan30 blog">
-<meta property="og:description" content="类级别的检索策略可以通过&lt;class&gt;元素的lazy属性进行设置&gt;lazy属性进行设置">
+<meta property="og:description" content="在映射文件中，用&lt;set&gt;元素的来配置 一对多关联 和 多对多关联关系,有lazy、fetch、batch-size三个属性。">
 <meta property="og:locale" content="en_CN">
-<meta property="article:published_time" content="2020-01-16T06:43:04.411Z">
-<meta property="article:modified_time" content="2020-02-08T04:18:41.775Z">
+<meta property="article:published_time" content="2020-01-16T06:50:18.725Z">
+<meta property="article:modified_time" content="2020-02-13T07:52:13.080Z">
 <meta property="article:author" content="Orangutan30">
 <meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
@@ -191,43 +191,74 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-类级别的检索策略" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Hibernate-一对多和多对多的检索策略" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      类级别的检索策略
+      Hibernate -- 一对多和多对多的检索策略
     </h1>
   
 
         
-        <a href="/2020/01/16/%E7%B1%BB%E7%BA%A7%E5%88%AB%E7%9A%84%E6%A3%80%E7%B4%A2%E7%AD%96%E7%95%A5/" class="archive-article-date">
-  	<time datetime="2020-01-16T06:43:04.411Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-16</time>
+        <a href="/2020/01/16/Hibernate-%E4%B8%80%E5%AF%B9%E5%A4%9A%E5%92%8C%E5%A4%9A%E5%AF%B9%E5%A4%9A%E7%9A%84%E6%A3%80%E7%B4%A2%E7%AD%96%E7%95%A5/" class="archive-article-date">
+  	<time datetime="2020-01-16T06:50:18.725Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-16</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h5 id="类级别的检索策略可以通过-lt-class-gt-元素的lazy属性进行设置-gt-lazy属性进行设置"><a href="#类级别的检索策略可以通过-lt-class-gt-元素的lazy属性进行设置-gt-lazy属性进行设置" class="headerlink" title="类级别的检索策略可以通过&lt;class&gt;元素的lazy属性进行设置&gt;lazy属性进行设置"></a>类级别的检索策略可以通过<code>&lt;class&gt;</code>元素的<u>lazy</u>属性进行设置&gt;lazy属性进行设置</h5><hr>
+        <h5 id="在映射文件中，用-lt-set-gt-元素的来配置-一对多关联-和-多对多关联关系-有lazy、fetch、batch-size三个属性。"><a href="#在映射文件中，用-lt-set-gt-元素的来配置-一对多关联-和-多对多关联关系-有lazy、fetch、batch-size三个属性。" class="headerlink" title="在映射文件中，用&lt;set&gt;元素的来配置 一对多关联 和 多对多关联关系,有lazy、fetch、batch-size三个属性。"></a>在映射文件中，用<code>&lt;set&gt;</code>元素的来配置 一对多关联 和 多对多关联关系,有lazy、fetch、batch-size三个属性。</h5><hr>
 <a id="more"></a>
-<h4 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h4><h5 id="1-立即检索——立即加载检索方法指定的对象"><a href="#1-立即检索——立即加载检索方法指定的对象" class="headerlink" title="1.立即检索——立即加载检索方法指定的对象"></a>1.立即检索——立即加载检索方法指定的对象</h5><h5 id="2-延迟检索——延迟加载检索方法指定的对象（默认情况-lasy-true）在使用具体的属性时，再进行加载。"><a href="#2-延迟检索——延迟加载检索方法指定的对象（默认情况-lasy-true）在使用具体的属性时，再进行加载。" class="headerlink" title="2.延迟检索——延迟加载检索方法指定的对象（默认情况 lasy = true）在使用具体的属性时，再进行加载。"></a>2.延迟检索——延迟加载检索方法指定的对象（默认情况 lasy = true）在使用具体的属性时，再进行加载。</h5><ul>
-<li>如果程序加载一个对象的目的是为了访问它的属性，这个时候我们采用<u>立即检索</u>。</li>
-<li>如果程序加载一个对象的目的仅是为了获得它的引用，则采用<u>延迟加载</u>。注意可能出现懒加载异常！</li>
-<li>lazy属性<em>仅对<u>load()</u>方法有效方法有效</em>。<u>Session的get()和Query的list()方法在类级别只能使用立即检索策略</u>。</li>
-<li>class元素属性为true时，load()方法不会执行查询数据表的select语句，仅返回代理对象的实例，该实例有如下特征：<pre><code>1. 由 Hibernate 在运行时采用 CGLIB 工具动态生成
-2. Hibernate 创建代理类实例时, 仅初始化其 OID 属性
-3.在第一次访问代理类实例的非 OID 属性时, Hibernate 会初始化代理类实例</code></pre></li>
+<h3 id="set元素的属性—lazy"><a href="#set元素的属性—lazy" class="headerlink" title="set元素的属性—lazy"></a>set元素的属性—lazy</h3><pre><code>- lazy：决定orders集合被初始化的时机。即是在加载Customer对象时就进行初始化，还是在程序访问orders集合时被初始化。
+- fetch:有以下3个取值：
+    1.select:
+    2.subselect:
+    3.join:
+    取值为 “select” 或 “subselect” 时, 决定初始化 orders 的查询语句的形式。
+    若取值为”join”, 则决定 orders 集合被初始化的时机,lazy属性将被忽略。
+- batch-size:用来为延迟检索策略或立即检索策略设定批量检索的数量. 批量检索能减少 SELECT 语句的数目, 提高延迟检索或立即检索的运行性能。</code></pre><ul>
+<li><p>一对多 或 多对多 的集合属性默认使用懒加载检索策略，可以通过<code>&lt;set&gt;</code>的 <u>lazy</u> 属性来修改默认的检索策略。默认为true,并不建议设置为false。lazy属性来修改默认的检索策略。默认为true,并不建议设置为false。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testOne2ManyLevelStrategy</span><span class="params">()</span></span>&#123;</span><br><span class="line">    Customer customer = (Customer) session.get(Customer<span class="class">.<span class="keyword">class</span>, 1)</span>;</span><br><span class="line">    System.out.println(customer.getCustomerName());<span class="comment">//set的lazy属性为默认值true,没有初始化orders</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">        Hibernate: </span></span><br><span class="line"><span class="comment">            select</span></span><br><span class="line"><span class="comment">                customer0_.CUSTOMER_ID as CUSTOMER1_0_0_,</span></span><br><span class="line"><span class="comment">                customer0_.CUSTOMER_NAME as CUSTOMER2_0_0_ </span></span><br><span class="line"><span class="comment">            from</span></span><br><span class="line"><span class="comment">                CUSTOMERS customer0_ </span></span><br><span class="line"><span class="comment">            where</span></span><br><span class="line"><span class="comment">                customer0_.CUSTOMER_ID=?</span></span><br><span class="line"><span class="comment">        AA</span></span><br><span class="line"><span class="comment">        */</span></span><br><span class="line">    </span><br><span class="line">    System.out.println(customer.getOrders().size());<span class="comment">//set的lazy属性为默认值true,调用属性时才进行初始化</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>   如果设置为false以上代码在检索Customer对象时会将orders集合一并检索出来，发送多条SQL语句</p>
+</li>
+<li><p>实际上 <u>lazy</u> 还可以设置为extra。增强的延迟检索。</p>
+<p>当<code>&lt;set&gt;</code>的lazy属性设置为false时：将oerders集合一并检索</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testOne2ManyLevelStrategy</span><span class="params">()</span></span>&#123;</span><br><span class="line">       Customer customer = (Customer) session.get(Customer<span class="class">.<span class="keyword">class</span>, 1)</span>;</span><br><span class="line">       System.out.println(customer.getCustomerName());</span><br><span class="line">       System.out.println(customer.getOrders().size());</span><br><span class="line">            <span class="comment">/*</span></span><br><span class="line"><span class="comment">               Hibernate: </span></span><br><span class="line"><span class="comment">                   select</span></span><br><span class="line"><span class="comment">                       customer0_.CUSTOMER_ID as CUSTOMER1_0_0_,</span></span><br><span class="line"><span class="comment">                       customer0_.CUSTOMER_NAME as CUSTOMER2_0_0_ </span></span><br><span class="line"><span class="comment">                   from</span></span><br><span class="line"><span class="comment">                       CUSTOMERS customer0_ </span></span><br><span class="line"><span class="comment">                   where</span></span><br><span class="line"><span class="comment">                       customer0_.CUSTOMER_ID=?</span></span><br><span class="line"><span class="comment">               Hibernate: </span></span><br><span class="line"><span class="comment">                   select</span></span><br><span class="line"><span class="comment">                       orders0_.CUSTOMER_ID as CUSTOMER3_0_1_,</span></span><br><span class="line"><span class="comment">                       orders0_.ORDER_ID as ORDER_ID1_1_1_,</span></span><br><span class="line"><span class="comment">                       orders0_.ORDER_ID as ORDER_ID1_1_0_,</span></span><br><span class="line"><span class="comment">                       orders0_.ORDER_NAME as ORDER_NA2_1_0_,</span></span><br><span class="line"><span class="comment">                       orders0_.CUSTOMER_ID as CUSTOMER3_1_0_ </span></span><br><span class="line"><span class="comment">                   from</span></span><br><span class="line"><span class="comment">                       ORDERS orders0_ </span></span><br><span class="line"><span class="comment">                   where</span></span><br><span class="line"><span class="comment">                       orders0_.CUSTOMER_ID=? </span></span><br><span class="line"><span class="comment">                   order by</span></span><br><span class="line"><span class="comment">                       orders0_.ORDER_NAME desc</span></span><br><span class="line"><span class="comment">               AA</span></span><br><span class="line"><span class="comment">               3</span></span><br><span class="line"><span class="comment">            */</span></span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<p>当<code>&lt;set&gt;</code>的lazy属性设置为extra时：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testOne2ManyLevelStrategy</span><span class="params">()</span></span>&#123;</span><br><span class="line">        Customer customer = (Customer) session.get(Customer<span class="class">.<span class="keyword">class</span>, 1)</span>;</span><br><span class="line">        System.out.println(customer.getCustomerName());<span class="comment">//没有初始化orders</span></span><br><span class="line"></span><br><span class="line">        System.out.println(customer.getOrders().size());</span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">            Hibernate: </span></span><br><span class="line"><span class="comment">                    select</span></span><br><span class="line"><span class="comment">                        customer0_.CUSTOMER_ID as CUSTOMER1_0_0_,</span></span><br><span class="line"><span class="comment">                        customer0_.CUSTOMER_NAME as CUSTOMER2_0_0_ </span></span><br><span class="line"><span class="comment">                    from</span></span><br><span class="line"><span class="comment">                        CUSTOMERS customer0_ </span></span><br><span class="line"><span class="comment">                    where</span></span><br><span class="line"><span class="comment">                        customer0_.CUSTOMER_ID=?</span></span><br><span class="line"><span class="comment">                AA</span></span><br><span class="line"><span class="comment">                Hibernate: </span></span><br><span class="line"><span class="comment">                    select</span></span><br><span class="line"><span class="comment">                        count(ORDER_ID) </span></span><br><span class="line"><span class="comment">                    from</span></span><br><span class="line"><span class="comment">                        ORDERS </span></span><br><span class="line"><span class="comment">                    where</span></span><br><span class="line"><span class="comment">                        CUSTOMER_ID =?</span></span><br><span class="line"><span class="comment">                3</span></span><br><span class="line"><span class="comment">        */</span></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>  没有把orders进行初始化而是加了一个count，extra会尽可能的延迟集合初始化的时机！</p>
+</li>
 </ul>
 <hr>
-<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><ol>
-<li>通常情况下使用默认值 lazy = true</li>
-<li>这个检索策略仅适用于 load() 方法</li>
-<li>注意懒加载异常</li>
-</ol>
-
+<h4 id="总结-set的-lazy-属性"><a href="#总结-set的-lazy-属性" class="headerlink" title="总结 set的 lazy 属性"></a>总结 set的 lazy 属性</h4><h5 id="lazy-取3个值"><a href="#lazy-取3个值" class="headerlink" title="lazy 取3个值"></a>lazy 取3个值</h5><pre><code>1. true: 大部分情况下使用默认值true
+    在延迟检索(lazy 属性值为 true) 集合属性时, Hibernate 在以下情况下初始化集合代理类实例：
+    a. 应用程序第一次访问集合属性: iterator(), size(), isEmpty(), contains() 等方法
+    b. 通过 Hibernate.initialize() 静态方法显式初始化。通常用此方法进行初始化
+2. false: 很少使用
+3. extra: 增强延迟检索策略能进一步延迟 Customer 对象的 orders 集合代理实例的初始化时机，在以下情况下会进行初始化：
+    a. 当程序第一次访问 orders 属性的 iterator() 方法时, 会导致 orders 集合代理类实例的初始化
+    b. 当程序第一次访问 order 属性的 size(), contains() 和 isEmpty() 方法时, Hibernate 不会初始化 orders 集合类的实例, 仅通过特定的 select 语句查询必要的信息, 不会检索所有的 Order 对象</code></pre><hr>
+<h3 id="set元素的属性—batch-size"><a href="#set元素的属性—batch-size" class="headerlink" title="set元素的属性—batch-size"></a>set元素的属性—batch-size</h3><h5 id="batch-size"><a href="#batch-size" class="headerlink" title="batch-size:"></a>batch-size:</h5><p>example:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line"> <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testSetBatchSize</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">        List&lt;Customer&gt; customers = session.createQuery(<span class="string">"FROM Customer"</span>).list();</span><br><span class="line"></span><br><span class="line">        System.out.println(customers.size());</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(Customer customer : customers)&#123;</span><br><span class="line">            <span class="keyword">if</span>(customer.getOrders() != <span class="keyword">null</span>)&#123;</span><br><span class="line">                System.out.println(customer.getOrders().size());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">        Hibernate: </span></span><br><span class="line"><span class="comment">            select</span></span><br><span class="line"><span class="comment">                customer0_.CUSTOMER_ID as CUSTOMER1_0_,</span></span><br><span class="line"><span class="comment">                customer0_.CUSTOMER_NAME as CUSTOMER2_0_ </span></span><br><span class="line"><span class="comment">            from</span></span><br><span class="line"><span class="comment">                CUSTOMERS customer0_</span></span><br><span class="line"><span class="comment">        4</span></span><br><span class="line"><span class="comment">        Hibernate: </span></span><br><span class="line"><span class="comment">            select</span></span><br><span class="line"><span class="comment">                orders0_.CUSTOMER_ID as CUSTOMER3_0_1_,</span></span><br><span class="line"><span class="comment">                orders0_.ORDER_ID as ORDER_ID1_1_1_,</span></span><br><span class="line"><span class="comment">                orders0_.ORDER_ID as ORDER_ID1_1_0_,</span></span><br><span class="line"><span class="comment">                orders0_.ORDER_NAME as ORDER_NA2_1_0_,</span></span><br><span class="line"><span class="comment">                orders0_.CUSTOMER_ID as CUSTOMER3_1_0_ </span></span><br><span class="line"><span class="comment">            from</span></span><br><span class="line"><span class="comment">                ORDERS orders0_ </span></span><br><span class="line"><span class="comment">            where</span></span><br><span class="line"><span class="comment">                orders0_.CUSTOMER_ID=? </span></span><br><span class="line"><span class="comment">            order by</span></span><br><span class="line"><span class="comment">                orders0_.ORDER_NAME desc</span></span><br><span class="line"><span class="comment">        3</span></span><br><span class="line"><span class="comment">        Hibernate: </span></span><br><span class="line"><span class="comment">            select</span></span><br><span class="line"><span class="comment">                orders0_.CUSTOMER_ID as CUSTOMER3_0_1_,</span></span><br><span class="line"><span class="comment">                orders0_.ORDER_ID as ORDER_ID1_1_1_,</span></span><br><span class="line"><span class="comment">                orders0_.ORDER_ID as ORDER_ID1_1_0_,</span></span><br><span class="line"><span class="comment">                orders0_.ORDER_NAME as ORDER_NA2_1_0_,</span></span><br><span class="line"><span class="comment">                orders0_.CUSTOMER_ID as CUSTOMER3_1_0_ </span></span><br><span class="line"><span class="comment">            from</span></span><br><span class="line"><span class="comment">                ORDERS orders0_ </span></span><br><span class="line"><span class="comment">            where</span></span><br><span class="line"><span class="comment">                orders0_.CUSTOMER_ID=? </span></span><br><span class="line"><span class="comment">            order by</span></span><br><span class="line"><span class="comment">                orders0_.ORDER_NAME desc</span></span><br><span class="line"><span class="comment">        3</span></span><br><span class="line"><span class="comment">        Hibernate: </span></span><br><span class="line"><span class="comment">            select</span></span><br><span class="line"><span class="comment">                orders0_.CUSTOMER_ID as CUSTOMER3_0_1_,</span></span><br><span class="line"><span class="comment">                orders0_.ORDER_ID as ORDER_ID1_1_1_,</span></span><br><span class="line"><span class="comment">                orders0_.ORDER_ID as ORDER_ID1_1_0_,</span></span><br><span class="line"><span class="comment">                orders0_.ORDER_NAME as ORDER_NA2_1_0_,</span></span><br><span class="line"><span class="comment">                orders0_.CUSTOMER_ID as CUSTOMER3_1_0_ </span></span><br><span class="line"><span class="comment">            from</span></span><br><span class="line"><span class="comment">                ORDERS orders0_ </span></span><br><span class="line"><span class="comment">            where</span></span><br><span class="line"><span class="comment">                orders0_.CUSTOMER_ID=? </span></span><br><span class="line"><span class="comment">            order by</span></span><br><span class="line"><span class="comment">                orders0_.ORDER_NAME desc</span></span><br><span class="line"><span class="comment">        3</span></span><br><span class="line"><span class="comment">        Hibernate: </span></span><br><span class="line"><span class="comment">            select</span></span><br><span class="line"><span class="comment">                orders0_.CUSTOMER_ID as CUSTOMER3_0_1_,</span></span><br><span class="line"><span class="comment">                orders0_.ORDER_ID as ORDER_ID1_1_1_,</span></span><br><span class="line"><span class="comment">                orders0_.ORDER_ID as ORDER_ID1_1_0_,</span></span><br><span class="line"><span class="comment">                orders0_.ORDER_NAME as ORDER_NA2_1_0_,</span></span><br><span class="line"><span class="comment">                orders0_.CUSTOMER_ID as CUSTOMER3_1_0_ </span></span><br><span class="line"><span class="comment">            from</span></span><br><span class="line"><span class="comment">                ORDERS orders0_ </span></span><br><span class="line"><span class="comment">            where</span></span><br><span class="line"><span class="comment">                orders0_.CUSTOMER_ID=? </span></span><br><span class="line"><span class="comment">            order by</span></span><br><span class="line"><span class="comment">                orders0_.ORDER_NAME desc</span></span><br><span class="line"><span class="comment">        0</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<p>未设置batch-size属性设置为5后：时，发送了4条SQL语句<br>将batch-size = 5后：只发送了1条SQL语句</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">    Hibernate: </span></span><br><span class="line"><span class="comment">                select</span></span><br><span class="line"><span class="comment">                    customer0_.CUSTOMER_ID as CUSTOMER1_0_,</span></span><br><span class="line"><span class="comment">                    customer0_.CUSTOMER_NAME as CUSTOMER2_0_ </span></span><br><span class="line"><span class="comment">                from</span></span><br><span class="line"><span class="comment">                    CUSTOMERS customer0_</span></span><br><span class="line"><span class="comment">            4</span></span><br><span class="line"><span class="comment">    Hibernate: </span></span><br><span class="line"><span class="comment">        select</span></span><br><span class="line"><span class="comment">            orders0_.CUSTOMER_ID as CUSTOMER3_0_1_,</span></span><br><span class="line"><span class="comment">            orders0_.ORDER_ID as ORDER_ID1_1_1_,</span></span><br><span class="line"><span class="comment">            orders0_.ORDER_ID as ORDER_ID1_1_0_,</span></span><br><span class="line"><span class="comment">            orders0_.ORDER_NAME as ORDER_NA2_1_0_,</span></span><br><span class="line"><span class="comment">            orders0_.CUSTOMER_ID as CUSTOMER3_1_0_ </span></span><br><span class="line"><span class="comment">        from</span></span><br><span class="line"><span class="comment">            ORDERS orders0_ </span></span><br><span class="line"><span class="comment">        where</span></span><br><span class="line"><span class="comment">            orders0_.CUSTOMER_ID in (</span></span><br><span class="line"><span class="comment">                ?, ?, ?, ?</span></span><br><span class="line"><span class="comment">            ) </span></span><br><span class="line"><span class="comment">        order by</span></span><br><span class="line"><span class="comment">            orders0_.ORDER_NAME desc</span></span><br><span class="line"><span class="comment">    3</span></span><br><span class="line"><span class="comment">    3</span></span><br><span class="line"><span class="comment">    3</span></span><br><span class="line"><span class="comment">    0</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="总结-set的-batch-size-属性"><a href="#总结-set的-batch-size-属性" class="headerlink" title="总结 set的 batch-size 属性"></a>总结 set的 batch-size 属性</h4><h5 id="用来为延迟检索策略或立即检索策略设定批量检索的数量-批量检索能减少-SELECT-语句的数目-提高延迟检索或立即检索的运行性能。"><a href="#用来为延迟检索策略或立即检索策略设定批量检索的数量-批量检索能减少-SELECT-语句的数目-提高延迟检索或立即检索的运行性能。" class="headerlink" title="用来为延迟检索策略或立即检索策略设定批量检索的数量. 批量检索能减少 SELECT 语句的数目, 提高延迟检索或立即检索的运行性能。"></a>用来为延迟检索策略或立即检索策略设定批量检索的数量. 批量检索能减少 SELECT 语句的数目, 提高延迟检索或立即检索的运行性能。</h5><hr>
+<h3 id="set元素的属性—fetch"><a href="#set元素的属性—fetch" class="headerlink" title="set元素的属性—fetch"></a>set元素的属性—fetch</h3><h5 id="fetch-确定初始化orders集合的方式"><a href="#fetch-确定初始化orders集合的方式" class="headerlink" title="fetch: 确定初始化orders集合的方式"></a>fetch: 确定初始化orders集合的方式</h5><pre><code>有以下3个取值：
+    1.select: 查询   默认值   通过正常的方式来初始化set元素
+    2.subselect: 子查询
+                a. 假定 Session 缓存中有 n 个 orders 集合代理类实例没有被初始化, Hibernate 能够通过带子查询的 select 语句, 来批量初始化 n 个 orders 集合代理类实例
+                b. batch-size 属性将被忽略
+                c. 子查询中的 select 语句为查询 CUSTOMERS 表 OID 的 SELECT 语句
+                   子查询作为where子句的in的条件出现，查询所有1的一端的ID
+    3.join:
+            a. 检索 1的一端的对象时, 会采用迫切左外连接(通过左外连接进行查询，且把集合属性进行初始化)策略来检索 n 的一端的集合属性
+            b. lazy 属性将被忽略
+            c. Query 的list() 方法会忽略映射文件中配置的迫切左外连接检索策略（fetch = join）, 而依旧采用延迟加载策略</code></pre>
       
 
       
@@ -257,6 +288,17 @@
       
       
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/hibernate//" class="article-tag-list-link color5">hibernate</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
 
@@ -306,7 +348,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/01/16/%E7%B1%BB%E7%BA%A7%E5%88%AB%E7%9A%84%E6%A3%80%E7%B4%A2%E7%AD%96%E7%95%A5/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/01/16/Hibernate-%E4%B8%80%E5%AF%B9%E5%A4%9A%E5%92%8C%E5%A4%9A%E5%AF%B9%E5%A4%9A%E7%9A%84%E6%A3%80%E7%B4%A2%E7%AD%96%E7%95%A5/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -320,15 +362,20 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/01/16/%E4%B8%80%E5%AF%B9%E5%A4%9A%E5%92%8C%E5%A4%9A%E5%AF%B9%E5%A4%9A%E7%9A%84%E6%A3%80%E7%B4%A2%E7%AD%96%E7%95%A5/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/01/16/Hibernate-%E5%A4%9A%E5%AF%B9%E4%B8%80%E5%92%8C%E4%B8%80%E5%AF%B9%E4%B8%80%E5%85%B3%E8%81%94%E7%9A%84%E6%A3%80%E7%B4%A2%E7%AD%96%E7%95%A5/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          一对多和多对多的检索策略
+          Hibernate -- 多对一和一对一关联的检索策略
         
       </div>
     </a>
   
+  
+    <a href="/2020/01/16/Hibernate-%E7%B1%BB%E7%BA%A7%E5%88%AB%E7%9A%84%E6%A3%80%E7%B4%A2%E7%AD%96%E7%95%A5/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Hibernate -- 类级别的检索策略</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
