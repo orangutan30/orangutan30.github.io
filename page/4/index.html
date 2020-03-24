@@ -167,6 +167,93 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Hibernate/Hibernate_管理Session" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/13/Hibernate/Hibernate_%E7%AE%A1%E7%90%86Session/">Hibernate -- 管理Session</a>
+    </h1>
+  
+
+        
+        <a href="/2020/02/13/Hibernate/Hibernate_%E7%AE%A1%E7%90%86Session/" class="archive-article-date">
+  	<time datetime="2020-02-13T08:14:10.978Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="Hibernate-自身提供了三种管理-Session-对象的方法"><a href="#Hibernate-自身提供了三种管理-Session-对象的方法" class="headerlink" title="Hibernate  自身提供了三种管理 Session 对象的方法:"></a>Hibernate  自身提供了三种管理 Session 对象的方法:</h4><ol>
+<li>Session 对象的生命周期与本地线程绑定</li>
+<li>Session 对象的生命周期与 JTA 事务绑定</li>
+<li>Hibernate 委托程序管理 Session 对象的生命周期</li>
+</ol>
+<p>在 Hibernate 的配置文件中, hibernate.current_session_context_class 属性用于指定 Session 管理方式, 可选值包括:</p>
+<h5 id="1-thread-Session-对象的生命周期与本地线程绑定"><a href="#1-thread-Session-对象的生命周期与本地线程绑定" class="headerlink" title="1. thread: Session 对象的生命周期与本地线程绑定"></a>1. thread: Session 对象的生命周期与本地线程绑定</h5><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 配置管理Session的方式--&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"current_session_context_class"</span>&gt;</span>thread<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>   如果hibernate.current_session_context_class 属性值设为 thread, Hibernate 就会按照与本地线程绑定的方式来管理 Session：</p>
+<ul>
+<li>当一个线程(threadA)第一次调用 SessionFactory 对象的 getCurrentSession() 方法时, 该方法会创建一个新的 Session(sessionA) 对象, 把该对象与 threadA 绑定, 并将 sessionA 返回</li>
+<li>当 threadA 再次调用 SessionFactory 对象的 getCurrentSession() 方法时, 该方法将返回 sessionA 对象</li>
+<li>当 threadA 提交 sessionA 对象关联的事务时, Hibernate 会自动flush sessionA 对象的缓存, 然后提交事务, 关闭 sessionA 对象. 当 threadA 撤销 sessionA 对象关联的事务时, 也会自动关闭 sessionA 对象</li>
+<li>若 threadA 再次调用 SessionFactory 对象的 getCurrentSession() 方法时, 该方法会又创建一个新的 Session(sessionB) 对象, 把该对象与 threadA 绑定, 并将 sessionB 返回</li>
+</ul>
+<h5 id="2-jta-Session-对象的生命周期与-JTA-事务绑定"><a href="#2-jta-Session-对象的生命周期与-JTA-事务绑定" class="headerlink" title="2. jta*: Session 对象的生命周期与 JTA 事务绑定"></a>2. jta*: Session 对象的生命周期与 JTA 事务绑定</h5><h5 id="3-managed-Hibernate-委托程序来管理-Session-对象的生命周期"><a href="#3-managed-Hibernate-委托程序来管理-Session-对象的生命周期" class="headerlink" title="3. managed: Hibernate 委托程序来管理 Session 对象的生命周期"></a>3. managed: Hibernate 委托程序来管理 Session 对象的生命周期</h5>
+      
+
+       
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/hibernate//" class="article-tag-list-link color5">hibernate</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/02/13/Hibernate/Hibernate_%E7%AE%A1%E7%90%86Session/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Hibernate/Hibernate_批量处理数据" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
