@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>创建类的对象的方式 | Orangutan30 blog</title>
+  <title>Spring常见面试题 | Orangutan30 blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="方式一 ： new + 构造器 方式二： 要创建Xxx类的对象，可以查看是否有静态方法的存在，通过调用静态方法的方式创建Xxx对象 方式三：通过反射">
+  <meta name="description" content="Spring是什么?Spring是一个轻量级的IOC和AOP容器框架。是为Java应用程序提供基础性服务的一套框架，目的是用于简化企业应用程序的开发，它使得开发者只需要关心业务需求。常见的配置方式有三种：基于XML的配置、基于注解的配置、基于Java的配置。  Spring的优点 spring属于低侵入式设计，代码的污染极低 spring的DI机制将对象之间的依赖关系交由框架处理，减低组件的耦合">
 <meta property="og:type" content="article">
-<meta property="og:title" content="创建类的对象的方式">
-<meta property="og:url" content="http://yoursite.com/2020/03/25/Java%E5%9F%BA%E7%A1%80/%E5%88%9B%E5%BB%BA%E7%B1%BB%E7%9A%84%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%96%B9%E5%BC%8F/index.html">
+<meta property="og:title" content="Spring常见面试题">
+<meta property="og:url" content="http://yoursite.com/2020/03/25/Spring/Spring%E5%B8%B8%E8%A7%81%E9%9D%A2%E8%AF%95%E9%A2%98/index.html">
 <meta property="og:site_name" content="Orangutan30 blog">
-<meta property="og:description" content="方式一 ： new + 构造器 方式二： 要创建Xxx类的对象，可以查看是否有静态方法的存在，通过调用静态方法的方式创建Xxx对象 方式三：通过反射">
+<meta property="og:description" content="Spring是什么?Spring是一个轻量级的IOC和AOP容器框架。是为Java应用程序提供基础性服务的一套框架，目的是用于简化企业应用程序的开发，它使得开发者只需要关心业务需求。常见的配置方式有三种：基于XML的配置、基于注解的配置、基于Java的配置。  Spring的优点 spring属于低侵入式设计，代码的污染极低 spring的DI机制将对象之间的依赖关系交由框架处理，减低组件的耦合">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-03-25T09:33:40.176Z">
-<meta property="article:modified_time" content="2020-03-25T12:28:01.604Z">
+<meta property="article:published_time" content="2020-03-25T15:37:21.414Z">
+<meta property="article:modified_time" content="2020-03-25T16:45:15.543Z">
 <meta property="article:author" content="Orangutan30">
 <meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
@@ -167,29 +167,51 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Java基础/创建类的对象的方式" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Spring/Spring常见面试题" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      创建类的对象的方式
+      Spring常见面试题
     </h1>
   
 
         
-        <a href="/2020/03/25/Java%E5%9F%BA%E7%A1%80/%E5%88%9B%E5%BB%BA%E7%B1%BB%E7%9A%84%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%96%B9%E5%BC%8F/" class="archive-article-date">
-  	<time datetime="2020-03-25T09:33:40.176Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-25</time>
+        <a href="/2020/03/25/Spring/Spring%E5%B8%B8%E8%A7%81%E9%9D%A2%E8%AF%95%E9%A2%98/" class="archive-article-date">
+  	<time datetime="2020-03-25T15:37:21.414Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-25</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><strong>方式一 ： new + 构造器</strong></p>
-<p><strong>方式二： 要创建Xxx类的对象，可以查看是否有静态方法的存在，通过调用静态方法的方式创建Xxx对象</strong></p>
-<p><strong>方式三：通过反射</strong></p>
+        <ol>
+<li><h3 id="Spring是什么"><a href="#Spring是什么" class="headerlink" title="Spring是什么?"></a>Spring是什么?</h3><p>Spring是一个轻量级的IOC和AOP容器框架。是<strong>为Java应用程序提供基础性服务</strong>的一套框架，目的是用于简化企业应用程序的开发，它使得开发者只需要关心业务需求。常见的配置方式有三种：基于XML的配置、基于注解的配置、基于Java的配置。</p>
+</li>
+<li><h3 id="Spring的优点"><a href="#Spring的优点" class="headerlink" title="Spring的优点"></a>Spring的优点</h3><ul>
+<li>spring属于低侵入式设计，代码的污染极低</li>
+<li>spring的DI机制将对象之间的依赖关系交由框架处理，减低组件的耦合性</li>
+<li>Spring提供了AOP技术，支持将一些通用任务，如安全、事务、日志、权限等进行集中式管理，从而提供更好的复用</li>
+<li>spring对于主流的应用框架提供了集成支持</li>
+</ul>
+</li>
+<li><h3 id="对于IOC（Inversion-of-Control）-DI（Dependecy-Injection）的理解"><a href="#对于IOC（Inversion-of-Control）-DI（Dependecy-Injection）的理解" class="headerlink" title="对于IOC（Inversion of Control）/ DI（Dependecy Injection）的理解"></a>对于IOC（Inversion of Control）/ DI（Dependecy Injection）的理解</h3><p>IOC就是控制反转，只创建对象的控制权的转移。传统的过程中，由调用者创建被调用者的实例，但是在spring中，这个工作转交给spring来动态创建，因此叫做控制反转。创建的对象通过spring注入到调用者，因此也叫做依赖注入。</p>
+<p>三种注入方式分别为：构造器注入，setter方法注入，注解注入</p>
+</li>
+<li><h3 id="对于AOP的理解"><a href="#对于AOP的理解" class="headerlink" title="对于AOP的理解"></a>对于AOP的理解</h3><p>面向切面编程。是对面向对象编程（OOP）的补充，用于将那些与业务无关，但对多个对象产生影响的功能抽取并封装为一个可服用的模块，这个模块称为“切面”（Aspect）。可有效减少重复代码，降低模块间的耦合，提高系统可维护性。面向对象编程将程序分解为各个层次的对象，面向切面编程将程序运行过程分解成各个切面。可用于权限认证，日志，事务处理。</p>
+</li>
+<li><h3 id="Spring-框架中都用到了哪些设计模式？"><a href="#Spring-框架中都用到了哪些设计模式？" class="headerlink" title="Spring 框架中都用到了哪些设计模式？"></a>Spring 框架中都用到了哪些设计模式？</h3><p>工厂模式：BeanFactory就是简单工厂模式的体现，用来创建对象的实例</p>
+<p>单例模式：Bean默认为单例模式</p>
+<p>代理模式：Spring的AOP功能用到了JDK的动态代理和CGLIB字节码生成技术</p>
+<p>模板方法：用来解决代码重复的问题。比如. RestTemplate, JmsTemplate, JpaTemplate</p>
+<p>观察者模式：定义对象键一种一对多的依赖关系，当一个对象的状态发生改变时，所有依赖于它的对象都会得到通知被制动更新，如Spring中listener的实现–ApplicationListener</p>
+</li>
+<li><h3 id="Spring管理事务有几种方式？"><a href="#Spring管理事务有几种方式？" class="headerlink" title="Spring管理事务有几种方式？"></a>Spring管理事务有几种方式？</h3><p>编程式事务</p>
+<p>声明式事务 （基于xml，基于注解）</p>
+</li>
+</ol>
 
       
 
@@ -225,7 +247,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/Java基础//" class="article-tag-list-link color2">Java基础</a>
+        			<a href="/categories/spring//" class="article-tag-list-link color2">spring</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/spring/面试题//" class="article-tag-list-link color4">面试题</a>
         		</li>
       		
 		</ul>
@@ -280,7 +306,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/03/25/Java%E5%9F%BA%E7%A1%80/%E5%88%9B%E5%BB%BA%E7%B1%BB%E7%9A%84%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%96%B9%E5%BC%8F/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/03/25/Spring/Spring%E5%B8%B8%E8%A7%81%E9%9D%A2%E8%AF%95%E9%A2%98/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -294,18 +320,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/03/25/SpringMVC/title%20SpringMVC%E5%B8%B8%E8%A7%81%E9%9D%A2%E8%AF%95%E9%A2%98/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          SpringMVC常见面试题
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/03/25/Java%E5%9F%BA%E7%A1%80/IO%E6%B5%81/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">IO流</div>
+    <a href="/2020/03/25/SpringMVC/title%20SpringMVC%E5%B8%B8%E8%A7%81%E9%9D%A2%E8%AF%95%E9%A2%98/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">SpringMVC常见面试题</div>
       <i class="icon-circle-right"></i>
     </a>
   

@@ -167,6 +167,218 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Java基础/equals()与==的比较" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/24/Java%E5%9F%BA%E7%A1%80/equals()%E4%B8%8E==%E7%9A%84%E6%AF%94%E8%BE%83/">数组的常见算法及冒泡排序</a>
+    </h1>
+  
+
+        
+        <a href="/2020/03/24/Java%E5%9F%BA%E7%A1%80/equals()%E4%B8%8E==%E7%9A%84%E6%AF%94%E8%BE%83/" class="archive-article-date">
+  	<time datetime="2020-03-24T10:28:28.939Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-24</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="equals-与-的比较"><a href="#equals-与-的比较" class="headerlink" title="equals()与==的比较"></a>equals()与==的比较</h3><h4 id="equals-："><a href="#equals-：" class="headerlink" title="equals()："></a>equals()：</h4><ol>
+<li>equals（）是一个方法，只适用于引用数据类型</li>
+<li>Object类中的equals()方法和==的作用是相同的，都是  <u>比较像个对象的地址值</u>  是否相同。</li>
+<li>有些类，像String、Date都重写了equals()方法。重写后比较的是 <u>内容</u> 是否相等。</li>
+</ol>
+<h4 id=""><a href="#" class="headerlink" title="== :"></a>== :</h4><ol>
+<li><p>==是运算符，基本数据类型与引用数据类型的变量都可以使用</p>
+</li>
+<li><p>基本数据类型，比较的是两个变量保存的数据值是否相等（数据类型不一定要相同）</p>
+<p>引用数据类型，比较的是两个对象地址值是否相同（数据类型要一致）</p>
+</li>
+</ol>
+
+      
+
+       
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Java基础//" class="article-tag-list-link color2">Java基础</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Java基础/比较//" class="article-tag-list-link color3">比较</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/03/24/Java%E5%9F%BA%E7%A1%80/equals()%E4%B8%8E==%E7%9A%84%E6%AF%94%E8%BE%83/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Java基础/String、StringBuffer、StringBuilder的区别？" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/24/Java%E5%9F%BA%E7%A1%80/String%E3%80%81StringBuffer%E3%80%81StringBuilder%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F/">String、StringBuffer、StringBuilder的区别？</a>
+    </h1>
+  
+
+        
+        <a href="/2020/03/24/Java%E5%9F%BA%E7%A1%80/String%E3%80%81StringBuffer%E3%80%81StringBuilder%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F/" class="archive-article-date">
+  	<time datetime="2020-03-24T09:49:42.338Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-24</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="String、StringBuffer、StringBuilder的区别？"><a href="#String、StringBuffer、StringBuilder的区别？" class="headerlink" title="String、StringBuffer、StringBuilder的区别？"></a>String、StringBuffer、StringBuilder的区别？</h3><ul>
+<li>String:不可变的字符序列；底层使用char[ ]存储（jdk1.0）</li>
+<li>StringBuffer:可变的字符序列；<strong>线程安全</strong>(方法都是synchronized)，效率低；底层使用char[ ]存储(jdk1.0)</li>
+<li>StringBuilder:可变的字符序列；<strong>线程不安全</strong>（方法与StringBuffer类似，但是没有synchronized），效率高；底层使用char[]存储（jdk5.0新增）</li>
+</ul>
+<h3 id="三者执行效率对比"><a href="#三者执行效率对比" class="headerlink" title="三者执行效率对比"></a>三者执行效率对比</h3><p>从高到低： StringBuilder &gt; StringBuffer &gt; String</p>
+<h3 id="StringBuffer与StringBuilder的内存解析（以StringBuffer为例）"><a href="#StringBuffer与StringBuilder的内存解析（以StringBuffer为例）" class="headerlink" title="StringBuffer与StringBuilder的内存解析（以StringBuffer为例）"></a>StringBuffer与StringBuilder的内存解析（以StringBuffer为例）</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">String str = <span class="keyword">new</span> String(); <span class="comment">// char[] value = new char[0];</span></span><br><span class="line">String str1 = <span class="keyword">new</span> String(<span class="string">"abc"</span>);<span class="comment">// char[] value = new char[]&#123;'a','b','c'&#125;;</span></span><br><span class="line"></span><br><span class="line">StringBuffer stringBuffer1 = <span class="keyword">new</span> StringBuffer();<span class="comment">// char[] value = new char[capacity:16];底层创建了一个长度为16的数组</span></span><br><span class="line">Systme.out.println(stringBuffer1.length()); <span class="comment">//输出0</span></span><br><span class="line">stringBuufer1.append(<span class="string">'a'</span>); <span class="comment">// value[0] = 'a'</span></span><br><span class="line">stringBuufer1.append(<span class="string">'b'</span>); <span class="comment">// value[1] = 'b'</span></span><br><span class="line"></span><br><span class="line">StringBuffer stringBuffer2 = <span class="keyword">new</span> StringBuffer(<span class="string">"abc"</span>); <span class="comment">// char[] value = new char["abc".length()+16]</span></span><br><span class="line"></span><br><span class="line">System.out.println(stringBuffer2.length());  <span class="comment">//输出3</span></span><br></pre></td></tr></table></figure>
+
+<p>关于扩容：如果要添加的数据底层数组盛不下了，需要扩容底层的数组。</p>
+<p>默认情况下：扩容为原来容量的2倍+2，同时将原数组中的元素复制到新数组中。</p>
+<h3 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h3><table>
+<thead>
+<tr>
+<th></th>
+<th>方法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>增</td>
+<td>append(xxx)</td>
+</tr>
+<tr>
+<td>删</td>
+<td>delete(int start,int end)</td>
+</tr>
+<tr>
+<td>改</td>
+<td>setCharAt(int n,char ch) /  replace(int start,int end,String str)</td>
+</tr>
+<tr>
+<td>查</td>
+<td>charAt(int n)</td>
+</tr>
+<tr>
+<td>插</td>
+<td>insert(int offset,xxx)</td>
+</tr>
+<tr>
+<td>长度</td>
+<td>length()</td>
+</tr>
+<tr>
+<td>遍历</td>
+<td>for + charAt() /  toString()</td>
+</tr>
+</tbody></table>
+
+      
+
+       
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Java基础//" class="article-tag-list-link color2">Java基础</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Java基础/比较//" class="article-tag-list-link color3">比较</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/03/24/Java%E5%9F%BA%E7%A1%80/String%E3%80%81StringBuffer%E3%80%81StringBuilder%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Java基础/throws与throw的区别？" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -916,176 +1128,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/03/24/Java%E5%9F%BA%E7%A1%80/Object%E6%9C%89%E5%93%AA%E4%BA%9B%E5%85%AC%E5%85%B1%E6%96%B9%E6%B3%95%EF%BC%9F/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Java基础/按照数据类型分类" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/24/Java%E5%9F%BA%E7%A1%80/%E6%8C%89%E7%85%A7%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%88%86%E7%B1%BB/">变量的分类</a>
-    </h1>
-  
-
-        
-        <a href="/2020/03/24/Java%E5%9F%BA%E7%A1%80/%E6%8C%89%E7%85%A7%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%88%86%E7%B1%BB/" class="archive-article-date">
-  	<time datetime="2020-03-24T07:44:20.907Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="按照数据类型分类"><a href="#按照数据类型分类" class="headerlink" title="按照数据类型分类"></a>按照数据类型分类</h3><h4 id="1-1基本数据类型："><a href="#1-1基本数据类型：" class="headerlink" title="1.1基本数据类型："></a><strong>1.1基本数据类型：</strong></h4><h5 id="1-1-1数值型："><a href="#1-1-1数值型：" class="headerlink" title="1.1.1数值型："></a>1.1.1数值型：</h5><p>整型： <u>byte</u>（1字节：8bit）,<u>short</u>（2字节：16bit）,<u>int</u>（4字节：32bit）,<u>long</u>（8字节：64bit）</p>
-<p>浮点型：<u>float</u>（4字节：32bit）,<u>double</u>（8字节：64bit）</p>
-<p>​                注意：1.1.1    byte的范围是：-128~127</p>
-<p>​                          1.1.2    声明long型变量，需要以“l”或“L”结尾</p>
-<p>​                          1.1.3    通常定义整型变量，使用int型。整型常量，默认类型为int型</p>
-<p>​                          1.1.4    float表示的数值范围比long大</p>
-<p>​                          1.1.5    定义float型变量时，变量要以“f”或“F”结尾</p>
-<p>​                          1.1.6    通常定义浮点型变量时，使用double型，浮点型常量，默认类型为double</p>
-<h5 id="1-1-2字符型："><a href="#1-1-2字符型：" class="headerlink" title="1.1.2字符型："></a>1.1.2字符型：</h5><p>char</p>
-<h5 id="1-1-3布尔型："><a href="#1-1-3布尔型：" class="headerlink" title="1.1.3布尔型："></a>1.1.3布尔型：</h5><p>boolean</p>
-<p><strong>1.2引用数据类型：</strong><br>类（class）</p>
-<p>接口(interface)</p>
-<p>数组([ ])   string也是数据类型</p>
-<h3 id="2-自动类型转换（7种基本数据类型，不包含boolean）"><a href="#2-自动类型转换（7种基本数据类型，不包含boolean）" class="headerlink" title="2.自动类型转换（7种基本数据类型，不包含boolean）"></a>2.自动类型转换（7种基本数据类型，不包含boolean）</h3><h4 id="结论：当容量小的数据类型的变量与容量大的数据类型的变量做运算时，结果自动提升为容量大的数据类型。"><a href="#结论：当容量小的数据类型的变量与容量大的数据类型的变量做运算时，结果自动提升为容量大的数据类型。" class="headerlink" title="结论：当容量小的数据类型的变量与容量大的数据类型的变量做运算时，结果自动提升为容量大的数据类型。"></a>结论：当容量小的数据类型的变量与容量大的数据类型的变量做运算时，结果自动提升为容量大的数据类型。</h4><p>​                    byte、char、short  —&gt; int —&gt; long —&gt; float —&gt; double</p>
-<p>注意:当byte、char、short三种类型的变量做运算时，结果为int型</p>
-<p>​        此时说的容量大小是指表示数的范围的大小。比如float容量大于long的容量。</p>
-
-      
-
-       
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Java基础//" class="article-tag-list-link color2">Java基础</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Java基础/数据类型//" class="article-tag-list-link color5">数据类型</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/24/Java%E5%9F%BA%E7%A1%80/%E6%8C%89%E7%85%A7%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%88%86%E7%B1%BB/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Java基础/JDK、JRE、JVM的关系" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/24/Java%E5%9F%BA%E7%A1%80/JDK%E3%80%81JRE%E3%80%81JVM%E7%9A%84%E5%85%B3%E7%B3%BB/">JDK、JRE、JVM的关系</a>
-    </h1>
-  
-
-        
-        <a href="/2020/03/24/Java%E5%9F%BA%E7%A1%80/JDK%E3%80%81JRE%E3%80%81JVM%E7%9A%84%E5%85%B3%E7%B3%BB/" class="archive-article-date">
-  	<time datetime="2020-03-24T07:13:48.449Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="JDK、JRE、JVM的关系"><a href="#JDK、JRE、JVM的关系" class="headerlink" title="JDK、JRE、JVM的关系"></a>JDK、JRE、JVM的关系</h3><p><img src="C:%5CUsers%5Cmeilleurtime%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200324151207205.png" alt="image-20200324151207205"></p>
-<p><strong>JDK</strong> ：英文名称（Java Development Kit），Java 开发工具包。jdk 是整个 Java 开发的核心，它集成了 jre 和一些好用的小工具。</p>
-<p><strong>JRE</strong> ：英文名称（Java Runtime Environment），我们叫它：Java 运行时环境。它主要包含两个部分，jvm 的标准实现和 Java 的一些基本类库。它相对于 jvm 来说，多出来的是一部分的 Java 类库。</p>
-<p><strong>JVM</strong> ：英文名称（Java Virtual Machine），就是我们耳熟能详的 Java 虚拟机。它只认识 xxx.class 这种类型的文件，它能够将 class 文件中的字节码指令进行识别并调用操作系统向上的 API 完成动作。所以说，jvm 是 Java 能够跨平台的核心。</p>
-
-      
-
-       
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Java基础//" class="article-tag-list-link color2">Java基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/24/Java%E5%9F%BA%E7%A1%80/JDK%E3%80%81JRE%E3%80%81JVM%E7%9A%84%E5%85%B3%E7%B3%BB/">展开全文 >></a>
         </p>
       
 

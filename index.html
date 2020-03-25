@@ -167,6 +167,310 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Spring/Spring常见面试题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/25/Spring/Spring%E5%B8%B8%E8%A7%81%E9%9D%A2%E8%AF%95%E9%A2%98/">Spring常见面试题</a>
+    </h1>
+  
+
+        
+        <a href="/2020/03/25/Spring/Spring%E5%B8%B8%E8%A7%81%E9%9D%A2%E8%AF%95%E9%A2%98/" class="archive-article-date">
+  	<time datetime="2020-03-25T15:37:21.414Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><h3 id="Spring是什么"><a href="#Spring是什么" class="headerlink" title="Spring是什么?"></a>Spring是什么?</h3><p>Spring是一个轻量级的IOC和AOP容器框架。是<strong>为Java应用程序提供基础性服务</strong>的一套框架，目的是用于简化企业应用程序的开发，它使得开发者只需要关心业务需求。常见的配置方式有三种：基于XML的配置、基于注解的配置、基于Java的配置。</p>
+</li>
+<li><h3 id="Spring的优点"><a href="#Spring的优点" class="headerlink" title="Spring的优点"></a>Spring的优点</h3><ul>
+<li>spring属于低侵入式设计，代码的污染极低</li>
+<li>spring的DI机制将对象之间的依赖关系交由框架处理，减低组件的耦合性</li>
+<li>Spring提供了AOP技术，支持将一些通用任务，如安全、事务、日志、权限等进行集中式管理，从而提供更好的复用</li>
+<li>spring对于主流的应用框架提供了集成支持</li>
+</ul>
+</li>
+<li><h3 id="对于IOC（Inversion-of-Control）-DI（Dependecy-Injection）的理解"><a href="#对于IOC（Inversion-of-Control）-DI（Dependecy-Injection）的理解" class="headerlink" title="对于IOC（Inversion of Control）/ DI（Dependecy Injection）的理解"></a>对于IOC（Inversion of Control）/ DI（Dependecy Injection）的理解</h3><p>IOC就是控制反转，只创建对象的控制权的转移。传统的过程中，由调用者创建被调用者的实例，但是在spring中，这个工作转交给spring来动态创建，因此叫做控制反转。创建的对象通过spring注入到调用者，因此也叫做依赖注入。</p>
+<p>三种注入方式分别为：构造器注入，setter方法注入，注解注入</p>
+</li>
+<li><h3 id="对于AOP的理解"><a href="#对于AOP的理解" class="headerlink" title="对于AOP的理解"></a>对于AOP的理解</h3><p>面向切面编程。是对面向对象编程（OOP）的补充，用于将那些与业务无关，但对多个对象产生影响的功能抽取并封装为一个可服用的模块，这个模块称为“切面”（Aspect）。可有效减少重复代码，降低模块间的耦合，提高系统可维护性。面向对象编程将程序分解为各个层次的对象，面向切面编程将程序运行过程分解成各个切面。可用于权限认证，日志，事务处理。</p>
+</li>
+<li><h3 id="Spring-框架中都用到了哪些设计模式？"><a href="#Spring-框架中都用到了哪些设计模式？" class="headerlink" title="Spring 框架中都用到了哪些设计模式？"></a>Spring 框架中都用到了哪些设计模式？</h3><p>工厂模式：BeanFactory就是简单工厂模式的体现，用来创建对象的实例</p>
+<p>单例模式：Bean默认为单例模式</p>
+<p>代理模式：Spring的AOP功能用到了JDK的动态代理和CGLIB字节码生成技术</p>
+<p>模板方法：用来解决代码重复的问题。比如. RestTemplate, JmsTemplate, JpaTemplate</p>
+<p>观察者模式：定义对象键一种一对多的依赖关系，当一个对象的状态发生改变时，所有依赖于它的对象都会得到通知被制动更新，如Spring中listener的实现–ApplicationListener</p>
+</li>
+<li><h3 id="Spring管理事务有几种方式？"><a href="#Spring管理事务有几种方式？" class="headerlink" title="Spring管理事务有几种方式？"></a>Spring管理事务有几种方式？</h3><p>编程式事务</p>
+<p>声明式事务 （基于xml，基于注解）</p>
+</li>
+</ol>
+
+      
+
+       
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/spring//" class="article-tag-list-link color2">spring</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/spring/面试题//" class="article-tag-list-link color4">面试题</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/03/25/Spring/Spring%E5%B8%B8%E8%A7%81%E9%9D%A2%E8%AF%95%E9%A2%98/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-SpringMVC/title SpringMVC常见面试题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/25/SpringMVC/title%20SpringMVC%E5%B8%B8%E8%A7%81%E9%9D%A2%E8%AF%95%E9%A2%98/">SpringMVC常见面试题</a>
+    </h1>
+  
+
+        
+        <a href="/2020/03/25/SpringMVC/title%20SpringMVC%E5%B8%B8%E8%A7%81%E9%9D%A2%E8%AF%95%E9%A2%98/" class="archive-article-date">
+  	<time datetime="2020-03-25T12:40:15.860Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><h3 id="什么是SpringMVC-谈谈对其的理解"><a href="#什么是SpringMVC-谈谈对其的理解" class="headerlink" title="什么是SpringMVC,谈谈对其的理解"></a>什么是SpringMVC,谈谈对其的理解</h3><ul>
+<li>springmvc是一个基于java实现了mvc设计模式的轻量级web框架</li>
+<li></li>
+</ul>
+</li>
+<li><h3 id="SpringMVC的工作原理"><a href="#SpringMVC的工作原理" class="headerlink" title="SpringMVC的工作原理"></a>SpringMVC的工作原理</h3><p>① 客户端发送请求到  <strong>DispatcherServlet</strong></p>
+<p>② <strong>DispatcherServlet</strong>  通过 <strong>handlerMapping</strong>  找到处理请求的 <strong>Controller</strong></p>
+<p>③ <strong>Controller</strong> 调业务逻辑后，返回 <strong>ModelAndView</strong></p>
+<p>④ <strong>ViewResolver</strong> 查询 <strong>ModelAndView</strong>, 找到指定的视图</p>
+<p>⑤ 渲染视图，相应客户端请求</p>
+</li>
+</ol>
+<ol start="3">
+<li><h3 id="SpringMVC执行流程"><a href="#SpringMVC执行流程" class="headerlink" title="SpringMVC执行流程"></a>SpringMVC执行流程</h3><p>① 客户端发送请求至核心控制器 <strong>DispatcherServlet</strong></p>
+<p>② 调用处理器映射器 <strong>HandlerMapping</strong> 请求获取 <strong>Handle</strong>，根据url 找到具体的处理器并<strong>生成处理器对象</strong>，返回给核心控制器</p>
+<p>③ 调用处理器适配器 <strong>HandlerAdapter</strong> ，通过其调用具体的处理器 <strong>Handler</strong></p>
+<p>④ <strong>Handler</strong> 执行完业务逻辑，返回<strong>ModelAndView</strong></p>
+<p>⑤ 视图解析器 <strong>ViewResolver</strong> 对<strong>ModelAndView</strong> 进行解析，返回具体的 <strong>View</strong></p>
+<p>⑥ <strong>DispatcherServlet</strong> 对<strong>View</strong> 进行渲染视图，将模型数据填充至视图中</p>
+<p>⑦ <strong>DispatcherServlet</strong> 相应用户请求</p>
+<p><img src="C:%5CUsers%5Cmeilleurtime%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200325210532428.png" alt="image-20200325210532428"></p>
+</li>
+<li><h3 id="SpringMVC如何解决GET-POST请求的中文乱码"><a href="#SpringMVC如何解决GET-POST请求的中文乱码" class="headerlink" title="SpringMVC如何解决GET / POST请求的中文乱码"></a>SpringMVC如何解决GET / POST请求的中文乱码</h3><h4 id="GET请求："><a href="#GET请求：" class="headerlink" title="GET请求："></a>GET请求：</h4><p>修改tomcat的配置文件server.xml，在后面加入URIEncoding=“UTF-8”。重启tomcat</p>
+<h4 id="POST请求："><a href="#POST请求：" class="headerlink" title="POST请求："></a>POST请求：</h4><p>使用Spring提供的编码过滤器CharacterEncodingFilter,在Web.xml里配置如下：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 字符编码过滤器 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">filter</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>encoding<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">filter-class</span>&gt;</span>org.springframework.web.filter.CharacterEncodingFilter<span class="tag">&lt;/<span class="name">filter-class</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">init-param</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>encoding<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>UTF-8<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">init-param</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>forceEncoding<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>true<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">filter</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">filter-mapping</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>encoding<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/*<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">filter-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="5">
+<li><h3 id="Springmvc-怎么样设定重定向和转发的？"><a href="#Springmvc-怎么样设定重定向和转发的？" class="headerlink" title="Springmvc 怎么样设定重定向和转发的？"></a>Springmvc 怎么样设定重定向和转发的？</h3><ul>
+<li>转发： 返回值前加 <strong>forword :</strong></li>
+<li>重定向：返回值前加 <strong>redirect :</strong></li>
+</ul>
+</li>
+<li><h3 id="springMVC和struts2的区别有哪些"><a href="#springMVC和struts2的区别有哪些" class="headerlink" title="springMVC和struts2的区别有哪些?"></a>springMVC和struts2的区别有哪些?</h3><ol>
+<li>springmvc的入口是一个servlet即前端控制器（DispatchServlet），而struts2入口是一个filter过虑器（StrutsPrepareAndExecuteFilter）</li>
+<li>springmvc是基于方法开发(一个url对应一个方法)，请求参数传递到方法的形参，可以设计为单例或多例(建议单例)，struts2是基于类开发，传递参数是通过类的属性，只能设计为多例</li>
+<li>Struts2采用值栈存储请求和响应的数据，通过OGNL存取数据. springmvc通过参数解析器是将request请求内容解析，并给方法形参赋值，将数据和视图封装成ModelAndView对象，最后又将ModelAndView中的模型数据通过reques域传输到页面。Jsp视图解析器默认使用jstl</li>
+</ol>
+</li>
+<li><h3 id="SpringMvc怎么和AJAX相互调用的？"><a href="#SpringMvc怎么和AJAX相互调用的？" class="headerlink" title="SpringMvc怎么和AJAX相互调用的？"></a>SpringMvc怎么和AJAX相互调用的？</h3><ol>
+<li><p>加入jackson.jar</p>
+</li>
+<li><p>在springMVC.xml配置json映射</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 字符串字符编码转换 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">class</span>=<span class="string">"org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter"</span> &gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"messageConverters"</span>&gt;</span>   </span><br><span class="line">	         <span class="tag">&lt;<span class="name">list</span>&gt;</span></span><br><span class="line">	             <span class="tag">&lt;<span class="name">bean</span> <span class="attr">class</span>=<span class="string">"org.springframework.http.converter.json.MappingJacksonHttpMessageConverter"</span>&gt;</span>   </span><br><span class="line">	                <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"supportedMediaTypes"</span>&gt;</span></span><br><span class="line">	                      <span class="tag">&lt;<span class="name">list</span>&gt;</span></span><br><span class="line">                              <span class="comment">&lt;!-- response.setContentType("application/json;charset=UTF-8"); --&gt;</span></span><br><span class="line">	                          <span class="tag">&lt;<span class="name">value</span>&gt;</span>application/json;charset=UTF-8<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">	                     <span class="tag">&lt;/<span class="name">list</span>&gt;</span>   </span><br><span class="line">	                <span class="tag">&lt;/<span class="name">property</span>&gt;</span>   </span><br><span class="line">	             <span class="tag">&lt;/<span class="name">bean</span>&gt;</span>   </span><br><span class="line">	         <span class="tag">&lt;/<span class="name">list</span>&gt;</span>   </span><br><span class="line">	    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+</li>
+</ol>
+<ol start="3">
+<li>在在方法前加上<strong>@ResponseBody</strong>注解</li>
+</ol>
+<ol start="8">
+<li><h3 id="Springmvc-如何做异常处理-？"><a href="#Springmvc-如何做异常处理-？" class="headerlink" title="Springmvc 如何做异常处理 ？"></a>Springmvc 如何做异常处理 ？</h3><p>在springMVC配置异常解析器<strong>SimpleMappingExceptionResolver</strong>,可以配置异常类型，默认错误视图，默认响应码等</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"exceptionResolver"</span> <span class="attr">class</span>=<span class="string">"org.springframework.web.servlet.handler.SimpleMappingExceptionResolver"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"exceptionAttribute"</span> <span class="attr">value</span>=<span class="string">"e"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span>  <span class="comment">&lt;!--异常解析器捕获异常后，会将异常对象存放到request域，属性名默认为exception--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"exceptionMappings"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">props</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">prop</span> <span class="attr">key</span>=<span class="string">"java.lang.Exception"</span>&gt;</span>error/error<span class="tag">&lt;/<span class="name">prop</span>&gt;</span> <span class="comment">&lt;!--配置错误视图--&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">props</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="9">
+<li><h3 id="Springmvc-的控制器是不是单例模式-如果是-有什么问题-怎么解决？"><a href="#Springmvc-的控制器是不是单例模式-如果是-有什么问题-怎么解决？" class="headerlink" title="Springmvc 的控制器是不是单例模式,如果是,有什么问题,怎么解决？"></a>Springmvc 的控制器是不是单例模式,如果是,有什么问题,怎么解决？</h3><p>是单例模式。</p>
+<p>在多线程访问时有线程安全问题。</p>
+<p>使用同步会影响性能，解决方法是不在控制器里面写字段</p>
+</li>
+<li><h3 id="Springmvc-中-如果拦截get方式提交的方法-怎么配置？"><a href="#Springmvc-中-如果拦截get方式提交的方法-怎么配置？" class="headerlink" title="Springmvc 中 如果拦截get方式提交的方法,怎么配置？"></a>Springmvc 中 如果拦截get方式提交的方法,怎么配置？</h3><p>在注解<strong>@RequestMapping</strong>里加上method = RequestMethod.GET</p>
+</li>
+<li><h3 id="Springmvc-怎么样把ModelMap里面的数据放入Session里面？"><a href="#Springmvc-怎么样把ModelMap里面的数据放入Session里面？" class="headerlink" title="Springmvc 怎么样把ModelMap里面的数据放入Session里面？"></a>Springmvc 怎么样把ModelMap里面的数据放入Session里面？</h3><p>可以在类上面加上<strong>@SessionAttributes</strong>注解,里面包含的字符串就是要放入session里面的key</p>
+</li>
+<li><h3 id="Springmvc-中系统如何分层"><a href="#Springmvc-中系统如何分层" class="headerlink" title="Springmvc 中系统如何分层"></a>Springmvc 中系统如何分层</h3><p>表现层（UI）：数据展现，页面操作，请求转发</p>
+<p>业务层（服务层）： 封装业务处理逻辑</p>
+<p>持久层（数据访问层）： 封装数据访问逻辑</p>
+</li>
+<li><h3 id="Springmvc-用什么对象从后台向前台传递数据的？"><a href="#Springmvc-用什么对象从后台向前台传递数据的？" class="headerlink" title="Springmvc 用什么对象从后台向前台传递数据的？"></a>Springmvc 用什么对象从后台向前台传递数据的？</h3><p><strong>ModelMap</strong>对象   通过put()添加对象，在前提通过el表达式获取</p>
+</li>
+<li><h3 id="Springmvc-中对于文件的上传有哪些需要注意"><a href="#Springmvc-中对于文件的上传有哪些需要注意" class="headerlink" title="Springmvc 中对于文件的上传有哪些需要注意"></a>Springmvc 中对于文件的上传有哪些需要注意</h3><ol>
+<li><p>form表单的 enctype = “multipart/form-data”</p>
+</li>
+<li><p>input标签的 type属性设置为file</p>
+</li>
+<li><p>在springMVC.xml配置类型解析器</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"multipartResolver"</span> 			<span class="attr">class</span>=<span class="string">"org.springframework.web.multipart.commons.CommonsMultipartResolver"</span> <span class="attr">p:defaultEncoding</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"maxUploadSize"</span> <span class="attr">value</span>=<span class="string">"2097152"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"resolveLazily"</span> <span class="attr">value</span>=<span class="string">"true"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+</li>
+</ol>
+<ol start="15">
+<li><h3 id="如果想在拦截的方法里面得到从前台传入的参数-怎么得到？"><a href="#如果想在拦截的方法里面得到从前台传入的参数-怎么得到？" class="headerlink" title="如果想在拦截的方法里面得到从前台传入的参数,怎么得到？"></a>如果想在拦截的方法里面得到从前台传入的参数,怎么得到？</h3><p>直接在形参里面声明这个参数就可以,但必须名字和传过来的参数一样</p>
+</li>
+<li><h3 id="如果前台有很多个参数传入-并且这些参数都是一个对象的-那么怎么样快速得到这个对象？"><a href="#如果前台有很多个参数传入-并且这些参数都是一个对象的-那么怎么样快速得到这个对象？" class="headerlink" title="如果前台有很多个参数传入,并且这些参数都是一个对象的,那么怎么样快速得到这个对象？"></a>如果前台有很多个参数传入,并且这些参数都是一个对象的,那么怎么样快速得到这个对象？</h3><p>直接在方法中声明这个对象,SpringMvc就自动会把属性赋值到这个对象里面</p>
+</li>
+<li><h3 id="SpringMvc中函数的返回值是什么？"><a href="#SpringMvc中函数的返回值是什么？" class="headerlink" title="SpringMvc中函数的返回值是什么？"></a>SpringMvc中函数的返回值是什么？</h3><p>返回值可以有很多类型,有String, ModelAndView。ModelAndView类把视图和数据都合并的一起的，但一般用String比较好</p>
+</li>
+<li><h3 id="SpringMvc里面拦截器是怎么写的"><a href="#SpringMvc里面拦截器是怎么写的" class="headerlink" title="SpringMvc里面拦截器是怎么写的"></a>SpringMvc里面拦截器是怎么写的</h3><ol>
+<li><p>实现HandlerInterceptor接口</p>
+</li>
+<li><p>继承适配器类</p>
+<p>重写方法后，配置拦截器</p>
+<p>3个方法分别为：</p>
+<ul>
+<li>preHandle ：进入 Handler方法之前执行，用于身份认证、身份授权，比如身份认证，如果认证通过表示当前用户没有登陆，需要此方法拦截不再向下执行</li>
+<li>postHandle：进入Handler方法之后，返回modelAndView之前执行，应用场景从modelAndView出发：将公用的模型数据(比如菜单导航)在这里传到视图，也可以在这里统一指定视图</li>
+<li>afterCompletion：执行Handler完成执行此方法，应用场景：统一异常处理，统一日志处理</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">  <span class="comment">&lt;!-- 配置SpringMvc的拦截器 --&gt;</span></span><br><span class="line"> </span><br><span class="line"><span class="tag">&lt;<span class="name">mvc:interceptors</span>&gt;</span></span><br><span class="line"> </span><br><span class="line">    <span class="comment">&lt;!-- 配置一个拦截器的Bean就可以了 默认是对所有请求都拦截 --&gt;</span></span><br><span class="line"> </span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"myInterceptor"</span> <span class="attr">class</span>=<span class="string">"com.zwp.action.MyHandlerInterceptor"</span>&gt;</span><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"> </span><br><span class="line">    <span class="comment">&lt;!-- 只针对部分请求拦截 --&gt;</span></span><br><span class="line"> </span><br><span class="line">    <span class="tag">&lt;<span class="name">mvc:interceptor</span>&gt;</span></span><br><span class="line"> </span><br><span class="line">       <span class="tag">&lt;<span class="name">mvc:mapping</span> <span class="attr">path</span>=<span class="string">"/modelMap.do"</span> /&gt;</span></span><br><span class="line"> </span><br><span class="line">       <span class="tag">&lt;<span class="name">bean</span> <span class="attr">class</span>=<span class="string">"com.zwp.action.MyHandlerInterceptorAdapter"</span> /&gt;</span></span><br><span class="line"> </span><br><span class="line">    <span class="tag">&lt;/<span class="name">mvc:interceptor</span>&gt;</span></span><br><span class="line"> </span><br><span class="line"><span class="tag">&lt;/<span class="name">mvc:interceptors</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+</li>
+</ol>
+<ol start="19">
+<li><h3 id="注解原理"><a href="#注解原理" class="headerlink" title="注解原理"></a>注解原理</h3><p>注解本质是一个继承了Annotation的特殊接口，其具体实现类是Java运行时生成的动态代理类。我们通过反射获取注解时，返回的是Java运行时生成的动态代理对象。通过代理对象调用自定义注解的方法，会最终调用AnnotationInvocationHandler的invoke方法。该方法会从memberValues这个Map中索引出对应的值。而memberValues的来源是Java常量池。</p>
+</li>
+</ol>
+
+      
+
+       
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/springMVC//" class="article-tag-list-link color5">springMVC</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/springMVC/面试题//" class="article-tag-list-link color4">面试题</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/03/25/SpringMVC/title%20SpringMVC%E5%B8%B8%E8%A7%81%E9%9D%A2%E8%AF%95%E9%A2%98/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Java基础/创建类的对象的方式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -930,198 +1234,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/03/25/Java%E5%9F%BA%E7%A1%80/Collection/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Java基础/数组与集合" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/25/Java%E5%9F%BA%E7%A1%80/%E6%95%B0%E7%BB%84%E4%B8%8E%E9%9B%86%E5%90%88/">数组与集合</a>
-    </h1>
-  
-
-        
-        <a href="/2020/03/25/Java%E5%9F%BA%E7%A1%80/%E6%95%B0%E7%BB%84%E4%B8%8E%E9%9B%86%E5%90%88/" class="archive-article-date">
-  	<time datetime="2020-03-25T05:00:10.557Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>集合、数组都是对多个数据进行存储操作的结构，简称Java容器</p>
-<h3 id="数组存储的特点"><a href="#数组存储的特点" class="headerlink" title="数组存储的特点"></a>数组存储的特点</h3><ol>
-<li>一旦初始化后，长度就确定了</li>
-<li>一旦定义后，元素类型确定了，只能操作指定的元素类型</li>
-</ol>
-<h3 id="数组储存存在的问题"><a href="#数组储存存在的问题" class="headerlink" title="数组储存存在的问题"></a>数组储存存在的问题</h3><ol>
-<li>初始化后，长度不可修改</li>
-<li>方法有限，增删改查不方便，效率不高</li>
-<li>数组的特点是有序，可重复。对于无序、不可重复的需求无法满足</li>
-</ol>
-<p><strong>集合可以解决数组存在的问题</strong></p>
-
-      
-
-       
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Java基础//" class="article-tag-list-link color2">Java基础</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Java基础/比较//" class="article-tag-list-link color3">比较</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/25/Java%E5%9F%BA%E7%A1%80/%E6%95%B0%E7%BB%84%E4%B8%8E%E9%9B%86%E5%90%88/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Java基础/Java比较器Comparable与Comparator接口" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/25/Java%E5%9F%BA%E7%A1%80/Java%E6%AF%94%E8%BE%83%E5%99%A8Comparable%E4%B8%8EComparator%E6%8E%A5%E5%8F%A3/">Java比较器Comparable与Comparator接口</a>
-    </h1>
-  
-
-        
-        <a href="/2020/03/25/Java%E5%9F%BA%E7%A1%80/Java%E6%AF%94%E8%BE%83%E5%99%A8Comparable%E4%B8%8EComparator%E6%8E%A5%E5%8F%A3/" class="archive-article-date">
-  	<time datetime="2020-03-25T04:43:57.057Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="使用背景"><a href="#使用背景" class="headerlink" title="使用背景"></a>使用背景</h3><p>正常情况下，Java对象只能使用 == 或 != 进行比较。但是实际开发中，需要对多个对象进行排序。</p>
-<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><p>通过实现Comparable或Comparator接口来实现</p>
-<h3 id="自然排序——使用Comparable接口"><a href="#自然排序——使用Comparable接口" class="headerlink" title="自然排序——使用Comparable接口"></a>自然排序——使用Comparable接口</h3><ol>
-<li>String、包装类等实现了Comparable接口，重写了compareTo(obj)方法，给出了比较两个对象大小的方式。</li>
-<li>String、包装类重写compareTo()方法以后，进行了从小到大的排列</li>
-<li>重写compareTo()方法规则：<ul>
-<li>如果当前对象this大于形参对象obj，则返回正整数</li>
-<li>如果当前对象this小于形参对象obj，则返回负整数</li>
-<li>如果当前对象this等于形参对象obj，则返回零</li>
-</ul>
-</li>
-<li>对于自定义类来说，如果需要排序，我们可以让自定义类实现Comparable接口，重写compareTo(obj)方法。在compareTo(obj)方法中指明如何排序</li>
-</ol>
-<h3 id="定制排序——使用Comparator接口"><a href="#定制排序——使用Comparator接口" class="headerlink" title="定制排序——使用Comparator接口"></a>定制排序——使用Comparator接口</h3><p>当元素的类型<strong>没实现java.lang.Comparable接口</strong>而又不方便修改代码，或者实现了java.lang.Comparable接口的<strong>排序规则不适合当前的操作</strong>，那么可以考虑使用 Comparator 的对象来排序</p>
-<p>重写compare(Object o1,Object o2)方法，比较o1和o2的大小：</p>
-<ul>
-<li><p>如果方法返回正整数，则表示o1大于o2</p>
-</li>
-<li><p>返回负整数，表示o1小于o2</p>
-</li>
-<li><p>如果返回0，表示相等；</p>
-</li>
-</ul>
-<h3 id="二者比较"><a href="#二者比较" class="headerlink" title="二者比较"></a>二者比较</h3><ol>
-<li>Comparable接口的方式一旦确定，保证Comparable接口实现类的对象在任何位置都可以比较大小。</li>
-<li>Comparator接口属于临时性的比较</li>
-</ol>
-
-      
-
-       
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Java基础//" class="article-tag-list-link color2">Java基础</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Java基础/比较//" class="article-tag-list-link color3">比较</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/25/Java%E5%9F%BA%E7%A1%80/Java%E6%AF%94%E8%BE%83%E5%99%A8Comparable%E4%B8%8EComparator%E6%8E%A5%E5%8F%A3/">展开全文 >></a>
         </p>
       
 
