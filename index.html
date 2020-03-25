@@ -167,45 +167,216 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-Java基础/线程通信" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Java基础/创建类的对象的方式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/25/Java%E5%9F%BA%E7%A1%80/%E7%BA%BF%E7%A8%8B%E9%80%9A%E4%BF%A1/">线程通信</a>
+      <a class="article-title" href="/2020/03/25/Java%E5%9F%BA%E7%A1%80/%E5%88%9B%E5%BB%BA%E7%B1%BB%E7%9A%84%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%96%B9%E5%BC%8F/">创建多线程的方式</a>
     </h1>
   
 
         
-        <a href="/2020/03/25/Java%E5%9F%BA%E7%A1%80/%E7%BA%BF%E7%A8%8B%E9%80%9A%E4%BF%A1/" class="archive-article-date">
-  	<time datetime="2020-03-24T16:35:57.453Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-25</time>
+        <a href="/2020/03/25/Java%E5%9F%BA%E7%A1%80/%E5%88%9B%E5%BB%BA%E7%B1%BB%E7%9A%84%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%96%B9%E5%BC%8F/" class="archive-article-date">
+  	<time datetime="2020-03-25T09:33:40.176Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-25</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="线程通信的-3-个方法："><a href="#线程通信的-3-个方法：" class="headerlink" title="线程通信的 3 个方法："></a>线程通信的 3 个方法：</h3><p>wait(): 执行此方法，当前线程进入阻塞状态，并释放同步监视器</p>
-<p>notify()：执行此方法，会唤醒被wait()的一个线程。如果多个线程处于wait状态，优先唤醒优先级高的那个</p>
-<p>notifyAll():执行此方法，会唤醒所有wait状态的线程</p>
-<h3 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h3><ol>
-<li>以上3个方法必须使用在同步代码块或同步方法中</li>
-<li>以上3个方法的调用者，必须是同步代码块或同步方法中的同步监视器，否则会报IllegalMonitorStateException异常</li>
-<li>以上3个方法都定义在java.lang.Object类中</li>
-</ol>
-<h3 id="会释放锁的操作："><a href="#会释放锁的操作：" class="headerlink" title="会释放锁的操作："></a>会释放锁的操作：</h3><ul>
-<li>当前线程的同步方法，同步代码块执行结束会释放锁。</li>
-<li>当前线程在同步代码块、同步方法中遇到break、return终止了该代码块、方法的继续执行，会释放锁。</li>
-<li>当前线程在同步代码块、同步方法中出现了未处理的Error或Exception，导致异常结束时会释放锁。</li>
-<li>当前线程在同步代码块、同步方法中执行了线程对象的wait()方法时，会释放锁。</li>
+        <p><strong>方式一 ： new + 构造器</strong></p>
+<p><strong>方式二： 要创建Xxx类的对象，可以查看是否有静态方法的存在，通过调用静态方法的方式创建Xxx对象</strong></p>
+<p><strong>方式三：通过反射</strong></p>
+
+      
+
+       
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Java基础//" class="article-tag-list-link color2">Java基础</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/03/25/Java%E5%9F%BA%E7%A1%80/%E5%88%9B%E5%BB%BA%E7%B1%BB%E7%9A%84%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%96%B9%E5%BC%8F/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Java基础/IO流" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/25/Java%E5%9F%BA%E7%A1%80/IO%E6%B5%81/">IO流</a>
+    </h1>
+  
+
+        
+        <a href="/2020/03/25/Java%E5%9F%BA%E7%A1%80/IO%E6%B5%81/" class="archive-article-date">
+  	<time datetime="2020-03-25T09:19:27.809Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><ul>
+<li>I/O是Input/Output的缩写， I/O技术是非常实用的技术，用于处理设备之间的数据传输</li>
+<li>Java程序中，对于数据的输入/输出操作以“流(stream)” 的方式进</li>
+<li>java.io包下提供了各种“流”类和接口，用以获取不同种类的 数据，并通过标准的方法输入或输出数据</li>
 </ul>
-<h3 id="不会释放锁的操作："><a href="#不会释放锁的操作：" class="headerlink" title="不会释放锁的操作："></a>不会释放锁的操作：</h3><ul>
-<li>当前线程执行同步代码块或同步方法时，程序调用Thread.sleep()、Thread.yield()方法暂停当前线程，不会释放锁</li>
-<li>当前线程执行同步代码块或同步方法时，其他线程调用了该线程的suspend()方法将该线程挂起，不会释放锁。（尽量避免使用suspend()和resume()来控制线程 ）</li>
+<h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><ol>
+<li>根据数据单位：字节流、字符流</li>
+<li>根据数据流向：输入流、输出流</li>
+<li>根据流的角色：节点流、处理流</li>
+</ol>
+<h4 id="体系结构（红框对应的是IO流中的4个抽象基类）"><a href="#体系结构（红框对应的是IO流中的4个抽象基类）" class="headerlink" title="体系结构（红框对应的是IO流中的4个抽象基类）"></a>体系结构（红框对应的是IO流中的4个抽象基类）</h4><p><img src="C:%5CUsers%5Cmeilleurtime%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200325172309069.png" alt="image-20200325172309069"></p>
+<h3 id="输入过程"><a href="#输入过程" class="headerlink" title="输入过程"></a>输入过程</h3><ol>
+<li>创建File类的对象，指明需要读取的数据来源。要求文件必须存在</li>
+<li>创建相应的输入流，将file对象作为参数传入流的构造器中</li>
+<li>具体的读入过程：创建相应的byte[ ]或 char[ ]</li>
+<li>关闭流</li>
+</ol>
+<p>注意：程序出现异常需要使用try/catch-finally处理</p>
+<h3 id="输出过程"><a href="#输出过程" class="headerlink" title="输出过程"></a>输出过程</h3><ol>
+<li>创建File类的对象，指明需要读取的数据来源。要求文件必须存在</li>
+<li>创建相应的输出流，将file对象作为参数传入流的构造器中</li>
+<li>具体的读入过程：write(char[ ]/byte[ ] buffer,0,len)</li>
+<li>关闭流</li>
+</ol>
+<p>注意：程序出现异常需要使用try/catch-finally处理</p>
+
+      
+
+       
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Java基础//" class="article-tag-list-link color2">Java基础</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Java基础/IO流//" class="article-tag-list-link color4">IO流</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/03/25/Java%E5%9F%BA%E7%A1%80/IO%E6%B5%81/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Java基础/IO流-File类" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/25/Java%E5%9F%BA%E7%A1%80/IO%E6%B5%81-File%E7%B1%BB/">IO流-File类</a>
+    </h1>
+  
+
+        
+        <a href="/2020/03/25/Java%E5%9F%BA%E7%A1%80/IO%E6%B5%81-File%E7%B1%BB/" class="archive-article-date">
+  	<time datetime="2020-03-25T09:11:29.312Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h4><ul>
+<li><p>java.io.File类：文件和文件目录路径的抽象表示形式，与平台无关</p>
+</li>
+<li><p>File 能新建、删除、重命名文件和目录，但 File 不能访问文件内容本身。 如果需要访问文件内容本身，则需要使用输入/输出流</p>
+</li>
+<li><p>想要在Java程序中表示一个真实存在的文件或目录，那么必须有一个File对象</p>
+</li>
+<li><p>File类的对象常会作为参数传递到流的构造器中，指明读取或写入的”终点”</p>
+</li>
 </ul>
-
+<h4 id="常用构造器"><a href="#常用构造器" class="headerlink" title="常用构造器"></a>常用构造器</h4><p>File(String filePath)<br>File(String parentPath,String childPath)<br>File(File parentFile,String childPath)</p>
+<h4 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h4>
       
 
        
@@ -221,6 +392,10 @@
         		<li class="article-tag-list-item">
         			<a href="/categories/Java基础//" class="article-tag-list-link color2">Java基础</a>
         		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Java基础/IO流//" class="article-tag-list-link color4">IO流</a>
+        		</li>
       		
 		</ul>
 	</div>
@@ -228,7 +403,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/25/Java%E5%9F%BA%E7%A1%80/%E7%BA%BF%E7%A8%8B%E9%80%9A%E4%BF%A1/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/03/25/Java%E5%9F%BA%E7%A1%80/IO%E6%B5%81-File%E7%B1%BB/">展开全文 >></a>
         </p>
       
 
@@ -258,65 +433,51 @@
 
 
   
-    <article id="post-Java基础/创建多线程的方式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Java基础/HashMap底层实现原理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/25/Java%E5%9F%BA%E7%A1%80/%E5%88%9B%E5%BB%BA%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%9A%84%E6%96%B9%E5%BC%8F/">创建多线程的方式</a>
+      <a class="article-title" href="/2020/03/25/Java%E5%9F%BA%E7%A1%80/HashMap%E5%BA%95%E5%B1%82%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/">HashMap底层实现原理</a>
     </h1>
   
 
         
-        <a href="/2020/03/25/Java%E5%9F%BA%E7%A1%80/%E5%88%9B%E5%BB%BA%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%9A%84%E6%96%B9%E5%BC%8F/" class="archive-article-date">
-  	<time datetime="2020-03-24T16:00:15.347Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-25</time>
+        <a href="/2020/03/25/Java%E5%9F%BA%E7%A1%80/HashMap%E5%BA%95%E5%B1%82%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/" class="archive-article-date">
+  	<time datetime="2020-03-25T07:40:06.744Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-25</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <ol>
-<li><h3 id="继承Thread类"><a href="#继承Thread类" class="headerlink" title="继承Thread类"></a>继承Thread类</h3><p>步骤：–&gt;  创建一个继承于Thread类的子类</p>
-<p>​           –&gt; <strong>重写</strong>Thread类的 <strong>run()</strong> 方法</p>
-<p>​           –&gt; 创建Thread类的子类对象</p>
-<p>​           –&gt; 通过子类对象<strong>调用start()</strong>方法（启动当前线程并调用当前线程的run()方法） </p>
-</li>
-<li><h3 id="实现Runnable接口"><a href="#实现Runnable接口" class="headerlink" title="实现Runnable接口"></a>实现Runnable接口</h3></li>
+        <h3 id="HashMap是使用频率最高的Map接口实现类"><a href="#HashMap是使用频率最高的Map接口实现类" class="headerlink" title="HashMap是使用频率最高的Map接口实现类"></a>HashMap是使用频率最高的Map接口实现类</h3><ol>
+<li>允许使用null做为键和值</li>
+<li>所有key构成的集合是Set集合，无序、不可重复。所以key所在的类要重写equals()和hashCode()</li>
+<li>所有value构成的集合是Collection，无序、可重复。所以value所在的类要重写equals()</li>
+<li>每一个key-value构成一个entry</li>
+<li>所有的entry构成的集合是Set，无序、不可重复</li>
+<li>判断key相等，需要判断hashCode值是否相等，同时判断equals()是否返回true</li>
+<li>判断value相等，只需要判断equals()是否返回true</li>
 </ol>
-<p>   步骤：–&gt;  创建一个实现了Runnable接口的类</p>
-<p>   ​           –&gt; <strong>实现</strong>Runnable中的抽象方法<strong>run()</strong> </p>
-<p>   ​           –&gt; 创建实现类对象</p>
-<p>   ​           –&gt; 将该对象作为参数传递到Thread类的构造器中，创建Thread类的对象</p>
-<p>   ​           –&gt; 通过Thread类的对象<strong>调用start()</strong>方法（启动当前线程并调用当前线程的run()方法）</p>
-<ol start="3">
-<li><h3 id="两种方式的比较"><a href="#两种方式的比较" class="headerlink" title="两种方式的比较"></a>两种方式的比较</h3><p>开发中优先选择实现Runnable接口的方式，因为   1.实现的方式没类的单继承性的局限性 2.实现的方式更适合处理多线程共享数据的情况</p>
-</li>
-</ol>
-<ol start="4">
-<li><h3 id="实现Callable接口-JDK5-0新增"><a href="#实现Callable接口-JDK5-0新增" class="headerlink" title="实现Callable接口  (JDK5.0新增)"></a>实现Callable接口  (JDK5.0新增)</h3><p>步骤：–&gt;  创建一个实现了Callable接口的实现类</p>
-<p>​           –&gt; <strong>实现</strong>Callable中的<strong>call()</strong>方法，将线程需要执行的操作声明在call()中 </p>
-<p>​           –&gt; 创建实现类的对象</p>
-<p>​           –&gt; 将该对象作为参数传递到<strong>FutureTask</strong>构造器中，创建<strong>FutureTask</strong>的对象</p>
-<p>​           –&gt; 将FutureTaskd的对象作为参数传递到Thread类的构造器中，创建<strong>Thread</strong>的对象</p>
-<p>​           –&gt; 通过Thread类的对象<strong>调用start()</strong>方法（启动当前线程并调用当前线程的run()方法）</p>
-<p>​           –&gt; 同过<strong>FutureTask</strong>的对象调用get()方法获取返回值，即为重写的call()方法的返回值</p>
-<p>说明：call(）有返回值</p>
-<p>​           call(）可以抛出异常，被外贸的操作捕获，获取异常信息</p>
-<p>​           callable支持泛型</p>
-</li>
-<li><h3 id="线程池"><a href="#线程池" class="headerlink" title="线程池"></a>线程池</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ThreadPool</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//1. 提供指定线程数量的线程池</span></span><br><span class="line">        ExecutorService service = Executors.newFixedThreadPool(<span class="number">10</span>);</span><br><span class="line">        ThreadPoolExecutor service1 = (ThreadPoolExecutor) service;</span><br><span class="line">        <span class="comment">//设置线程池的属性</span></span><br><span class="line"><span class="comment">//        System.out.println(service.getClass());</span></span><br><span class="line"><span class="comment">//        service1.setCorePoolSize(15);</span></span><br><span class="line"><span class="comment">//        service1.setKeepAliveTime();</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="comment">//2.执行指定的线程的操作。需要提供实现Runnable接口或Callable接口实现类的对象</span></span><br><span class="line">        service.execute(<span class="keyword">new</span> NumberThread());<span class="comment">//适合适用于Runnable</span></span><br><span class="line">        service.execute(<span class="keyword">new</span> NumberThread1());<span class="comment">//适合适用于Runnable</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//        service.submit(Callable callable);//适合使用于Callable</span></span><br><span class="line">        <span class="comment">//3.关闭连接池</span></span><br><span class="line">        service.shutdown();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="内存结构说明"><a href="#内存结构说明" class="headerlink" title="内存结构说明"></a>内存结构说明</h3><p><strong>JDK 7中的实现原理</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">HashMap map = <span class="keyword">new</span> HashMap(); <span class="comment">//在实例化以后，底层创建了长度是16的一维数组Entry[] table</span></span><br><span class="line">map.put(key1,value1);<span class="comment">/* 首先调用key1所在类的hashCode()计算哈希值，通过某种算法，利用该哈希值计算得到在Entry数组中的存放位置：</span></span><br><span class="line"><span class="comment">		若该位置没有数据，添加成功      											——情况1</span></span><br><span class="line"><span class="comment">		若该位置有数据（存在一个或多个），比较key1和已经存在的一个或多个数据的哈希值：</span></span><br><span class="line"><span class="comment">                如果key1的哈希值与已经存在的数据的哈希值都不相同，添加成功 			——情况2</span></span><br><span class="line"><span class="comment">                如果key1的哈希值和某一已经存在的数据哈希值相同，继续调用equals()方法比较：</span></span><br><span class="line"><span class="comment">                		如果返回false ： 添加成功								——情况3</span></span><br><span class="line"><span class="comment">                		如果返回true ：使用value1替换原有的value值</span></span><br></pre></td></tr></table></figure>
 
-<p>说明：</p>
+<p>注意：情况2 和 情况3 中，key1-value1与已经存在的数据以链表的方式存储</p>
+<p>​            扩容：默认扩容为原来容量的2倍，并将数据复制到新的集合</p>
+<p><strong>JDK 8中的不同</strong></p>
 <ol>
-<li>提高响应速度，减少创建新线程的时间</li>
-<li>降低资源消耗（重复使用，不需要每次都创建）</li>
-<li>便于线程管理</li>
+<li>new HashMap()时，底层没有直接创建一个长度为16的数组</li>
+<li>首次调用put()方法时，创建数组</li>
+<li>JDK 8底层的数组是 Node[ ]而不是 Entry[ ]</li>
+<li>JDK 7底层结构为：数组 + 链表</li>
+<li>JDK 8底层结构为： 数组 + 链表 + 红黑树</li>
+<li>形成链表时，七上八下（jdk7:新的元素指向旧的元素。jdk8：旧的元素指向新的元素）</li>
+<li>当数组的某一个索引位置上的元素以链表形式存在的数据个数 &gt; 8 且当前数组的长度 &gt; 64时，此时此索引位置上的所数据改为使用红黑树存储</li>
 </ol>
-</li>
-</ol>
+<h3 id="HashMap底层电信属性说明"><a href="#HashMap底层电信属性说明" class="headerlink" title="HashMap底层电信属性说明"></a>HashMap底层电信属性说明</h3><p>DEFAULT_INITIAL_CAPACITY :     HashMap的默认容量，16<br>DEFAULT_LOAD_FACTOR：    HashMap的默认加载因子：0.75<br>threshold：    扩容的临界值 = 容量*填充因子：16 * 0.75 —&gt; 12<br>TREEIFY_THRESHOLD：    Bucket中链表长度大于该默认值，转化为红黑树:8<br>MIN_TREEIFY_CAPACITY：    桶中的Node被树化时最小的hash表容量:64</p>
 
       
 
@@ -333,6 +494,10 @@
         		<li class="article-tag-list-item">
         			<a href="/categories/Java基础//" class="article-tag-list-link color2">Java基础</a>
         		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Java基础/集合//" class="article-tag-list-link color3">集合</a>
+        		</li>
       		
 		</ul>
 	</div>
@@ -340,7 +505,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/25/Java%E5%9F%BA%E7%A1%80/%E5%88%9B%E5%BB%BA%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%9A%84%E6%96%B9%E5%BC%8F/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/03/25/Java%E5%9F%BA%E7%A1%80/HashMap%E5%BA%95%E5%B1%82%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/">展开全文 >></a>
         </p>
       
 
@@ -370,28 +535,32 @@
 
 
   
-    <article id="post-Java基础/Collection与Collections的区别？" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Java基础/Map" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/24/Java%E5%9F%BA%E7%A1%80/Collection%E4%B8%8ECollections%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F/">Collection与Collections的区别</a>
+      <a class="article-title" href="/2020/03/25/Java%E5%9F%BA%E7%A1%80/Map/">Map</a>
     </h1>
   
 
         
-        <a href="/2020/03/24/Java%E5%9F%BA%E7%A1%80/Collection%E4%B8%8ECollections%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F/" class="archive-article-date">
-  	<time datetime="2020-03-24T13:48:29.580Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-24</time>
+        <a href="/2020/03/25/Java%E5%9F%BA%E7%A1%80/Map/" class="archive-article-date">
+  	<time datetime="2020-03-25T07:24:11.869Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-25</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Collection"><a href="#Collection" class="headerlink" title="Collection"></a>Collection</h3><p>java.util.Collection 是一个<strong>集合框架的父接口</strong>。它提供了对集合对象进行基本操作的通用接口方法。</p>
-<h3 id="Collections"><a href="#Collections" class="headerlink" title="Collections"></a>Collections</h3><p>java.util.Collections 是一个包装类。它包含有各种有关集合操作的<strong>静态多态方法</strong>。此类<strong>不能实例化</strong>，是一个<strong>工具类</strong></p>
+        <p><img src="C:%5CUsers%5Cmeilleurtime%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200325153025372.png" alt="image-20200325153025372"></p>
+<h4 id="Map-双列数据，储存key-value对的数据"><a href="#Map-双列数据，储存key-value对的数据" class="headerlink" title="Map: 双列数据，储存key-value对的数据"></a>Map: 双列数据，储存key-value对的数据</h4><p>—–HashMap: Map的主要实现类，线程不安全，效率高，可以储存null的key和value</p>
+<p>​            —–LinkedHashMap: 可以按照添加顺序遍历集合内的元素（原因：在HashMap的底层结构基础上，                                              添加了一对指针，指向前一个和后一个元素）对于平凡的遍历操作，效率高于                                              HashMap</p>
+<p>—–TreeMap: 能保证按照添加的key-value对进行排序，实现排序遍历。底层使用红黑树</p>
+<p>—–Hashtable: 古老的实现类，线程安全，效率低，不可以使用null的key和value</p>
+<p>​            —–Properties: 用来处理配置文件。key与value都是String类型            </p>
 
       
 
@@ -408,6 +577,10 @@
         		<li class="article-tag-list-item">
         			<a href="/categories/Java基础//" class="article-tag-list-link color2">Java基础</a>
         		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Java基础/集合//" class="article-tag-list-link color3">集合</a>
+        		</li>
       		
 		</ul>
 	</div>
@@ -415,7 +588,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/24/Java%E5%9F%BA%E7%A1%80/Collection%E4%B8%8ECollections%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/03/25/Java%E5%9F%BA%E7%A1%80/Map/">展开全文 >></a>
         </p>
       
 
@@ -445,259 +618,86 @@
 
 
   
-    <article id="post-Java基础/抽象类VS接口" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Java基础/Collection Set接口" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/24/Java%E5%9F%BA%E7%A1%80/%E6%8A%BD%E8%B1%A1%E7%B1%BBVS%E6%8E%A5%E5%8F%A3/">抽象类VS接口</a>
+      <a class="article-title" href="/2020/03/25/Java%E5%9F%BA%E7%A1%80/Collection%20Set%E6%8E%A5%E5%8F%A3/">Collection——Set接口</a>
     </h1>
   
 
         
-        <a href="/2020/03/24/Java%E5%9F%BA%E7%A1%80/%E6%8A%BD%E8%B1%A1%E7%B1%BBVS%E6%8E%A5%E5%8F%A3/" class="archive-article-date">
-  	<time datetime="2020-03-24T12:13:08.672Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-24</time>
+        <a href="/2020/03/25/Java%E5%9F%BA%E7%A1%80/Collection%20Set%E6%8E%A5%E5%8F%A3/" class="archive-article-date">
+  	<time datetime="2020-03-25T06:41:02.333Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-25</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="抽象类VS接口"><a href="#抽象类VS接口" class="headerlink" title="抽象类VS接口"></a>抽象类VS接口</h3><p>相同点：</p>
-<ol>
-<li>不能实例化</li>
-<li>都可以包含抽象方法</li>
+        <h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><ol>
+<li>无序的</li>
+<li>不可重复的</li>
 </ol>
-<p>不同点：</p>
-<ol>
-<li><p>接口是被实现的，抽象类是被继承的</p>
-</li>
-<li><p>接口只能做方法声明（只有抽象方法），抽象类中可以做方法声明，也可以做方法实现（可以有抽象方法，也可以有具体的方法）</p>
-</li>
-<li><p>接口里定义的变量只能是公共静态常量，抽象类中的变量是普通变量</p>
-</li>
-<li><p>接口是设计的结果，抽象类是重构的结果 </p>
-</li>
-<li><p>接口主要用来抽象功能，抽象类主要用来抽象类别</p>
-</li>
-<li><p>一个类只能继承一个类，但可以实现多个接口</p>
-</li>
-</ol>
-<p>   注意：</p>
-<ol>
-<li>接口可以继承接口</li>
-<li>抽象类可以实现接口</li>
-<li>抽象类可以继承实体类（该实体类不能被final修饰，不能有且仅有私有构造器）</li>
-<li>接口中的变量隐式的使用 public static final 修饰，方法隐式的使用 public abstract修饰</li>
-</ol>
-
-      
-
-       
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Java基础//" class="article-tag-list-link color2">Java基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/24/Java%E5%9F%BA%E7%A1%80/%E6%8A%BD%E8%B1%A1%E7%B1%BBVS%E6%8E%A5%E5%8F%A3/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Java基础/单例模式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/24/Java%E5%9F%BA%E7%A1%80/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/">单例模式</a>
-    </h1>
-  
-
-        
-        <a href="/2020/03/24/Java%E5%9F%BA%E7%A1%80/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/" class="archive-article-date">
-  	<time datetime="2020-03-24T11:03:39.507Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="单例模式"><a href="#单例模式" class="headerlink" title="单例模式"></a>单例模式</h3><p>单例设计模式，就是采取一定的方法保证在整个的软件系统中，对某个类只能存在一个对象实例。</p>
-<h4 id="饿汉式"><a href="#饿汉式" class="headerlink" title="饿汉式"></a>饿汉式</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span></span>&#123;</span><br><span class="line">	<span class="comment">//1.私化类的构造器</span></span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="title">User</span><span class="params">()</span></span>&#123;	</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//2.内部创建类的对象</span></span><br><span class="line">	<span class="comment">//4.要求此对象也必须声明为静态的</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> User user = <span class="keyword">new</span> User();</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//3.提供公共的静态的方法，返回类的对象</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> User <span class="title">getUser</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> user;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//使用静态代码块</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span></span>&#123;</span><br><span class="line">	<span class="comment">//1.私化类的构造器</span></span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="title">User</span><span class="params">()</span></span>&#123;	</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//2.声明当前类对象，没初始化</span></span><br><span class="line">	<span class="comment">//4.此对象也必须声明为static的</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> User user = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">static</span>&#123;</span><br><span class="line">		user = <span class="keyword">new</span> User();</span><br><span class="line"> &#125;</span><br><span class="line">	<span class="comment">//3.声明public、static的返回当前类对象的方法</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> User <span class="title">getUser</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> user;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="懒汉式"><a href="#懒汉式" class="headerlink" title="懒汉式"></a>懒汉式</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span></span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//1.私化类的构造器</span></span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="title">User</span><span class="params">()</span></span>&#123;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//2.声明当前类对象，没初始化</span></span><br><span class="line">	<span class="comment">//4.此对象也必须声明为static的</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> User user = <span class="keyword">null</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//3.声明public、static的返回当前类对象的方法</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> User <span class="title">getUser</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(user == <span class="keyword">null</span>)&#123;</span><br><span class="line">			user = <span class="keyword">new</span> User();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> user;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>以上两种方式对比：</p>
-<p>饿汉式： </p>
-<ol>
-<li>对象加载时间长</li>
-<li>线程安全</li>
-</ol>
-<p>懒汉式：</p>
-<ol>
-<li>对象延迟创建</li>
-<li>以上写法线程不安全</li>
-</ol>
-<h3 id="懒汉式（线程安全）"><a href="#懒汉式（线程安全）" class="headerlink" title="懒汉式（线程安全）"></a>懒汉式（线程安全）</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">User</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> User user = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> User <span class="title">getUser</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(user == <span class="keyword">null</span>)&#123;</span><br><span class="line">            <span class="keyword">synchronized</span> (User<span class="class">.<span class="keyword">class</span>) </span>&#123;</span><br><span class="line">                <span class="keyword">if</span>(user == <span class="keyword">null</span>)&#123;</span><br><span class="line">                    user = <span class="keyword">new</span> User();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> user;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-      
-
-       
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Java基础//" class="article-tag-list-link color2">Java基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/24/Java%E5%9F%BA%E7%A1%80/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Java基础/包装类" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/24/Java%E5%9F%BA%E7%A1%80/%E5%8C%85%E8%A3%85%E7%B1%BB/">包装类</a>
-    </h1>
-  
-
-        
-        <a href="/2020/03/24/Java%E5%9F%BA%E7%A1%80/%E5%8C%85%E8%A3%85%E7%B1%BB/" class="archive-article-date">
-  	<time datetime="2020-03-24T10:37:54.523Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <table>
+<p>注意：无序的并不代表随机的，在底层的存储不是按照数组的索引顺序添加，而是根据哈希值</p>
+<h3 id="实现类"><a href="#实现类" class="headerlink" title="实现类"></a>实现类</h3><table>
 <thead>
 <tr>
-<th>基本数据类型</th>
-<th>包装类</th>
+<th>Set接口实现类</th>
+<th></th>
 </tr>
 </thead>
 <tbody><tr>
-<td>byte</td>
-<td>Byte</td>
+<td>HashSet</td>
+<td>Set接口的主要实现类，线程不安全，可储存null值</td>
 </tr>
 <tr>
-<td>short</td>
-<td>Short</td>
+<td>LinkedHashSet    (HashSet 的子类)</td>
+<td>可以<strong>按照添加的顺序</strong>遍历其内部数据，对于频繁的遍历操作，效率高于HashSet</td>
 </tr>
 <tr>
-<td>int</td>
-<td>Integer</td>
-</tr>
-<tr>
-<td>long</td>
-<td>Long</td>
-</tr>
-<tr>
-<td>float</td>
-<td>Float</td>
-</tr>
-<tr>
-<td>double</td>
-<td>Double</td>
-</tr>
-<tr>
-<td>boolean</td>
-<td>Boolean</td>
-</tr>
-<tr>
-<td>char</td>
-<td>Character</td>
+<td>TreeSet</td>
+<td>主要用于排序，可以按照添加对象的指定属性进行排序，线程不安全</td>
 </tr>
 </tbody></table>
-<p>其中Byte,Short,Integer,Long,Float,Double的父类是Number</p>
-<h4 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h4><p><img src="C:%5CUsers%5Cmeilleurtime%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200324190029759.png" alt="image-20200324190029759"></p>
+<p>注意：</p>
+<ol>
+<li>向HashSet和 LinkedHashSet中添加数据，其所在的类一定要重写hashCode()和equals()方法</li>
+<li>向TreeSet中添加数据，必须是相同类的对象</li>
+<li>TreeSet两种排序方式中：<ul>
+<li>自然排序（实现Comparable接口），比较两个对象是否相同的标准为：compareTo()返回0，不再用equals()</li>
+<li>定制排序（实现Comparator接口），比较两个对象是否相同的标准为：compare()返回0，不再用equals()</li>
+</ul>
+</li>
+</ol>
+<h3 id="HashSet元素的添加过程"><a href="#HashSet元素的添加过程" class="headerlink" title="HashSet元素的添加过程"></a>HashSet元素的添加过程</h3><p>向HashSet中添加元素a:</p>
+<ol>
+<li>首先调用元素a所在类的hashCode()方法，计算元素a的哈希值</li>
+<li>根据哈希值再用某种算法计算出在HashSet底层数组中的存放位置（即为：索引位置）</li>
+<li>判断该位置是否已经存在元素：<ol>
+<li>如果此位置上没有其他元素，添加成功   <strong>①</strong></li>
+<li>如果有其他元素b（或以链表的形式存在多个元素）：比较元素a与元素b的hash值：<ol>
+<li>如果hash值不相同，添加成功          <strong>②</strong></li>
+<li>如果hash值相同，调用元素a的equals()方法：<ol>
+<li>返回true,添加失败</li>
+<li>返回false，添加成功                  <strong>③</strong></li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<p>注意：对于情况②和情况③，元素a与一家存在的元素以链表的方式储存</p>
+<h3 id="HashSet、LinkedHashSet、TreeSet三者比较"><a href="#HashSet、LinkedHashSet、TreeSet三者比较" class="headerlink" title="HashSet、LinkedHashSet、TreeSet三者比较"></a>HashSet、LinkedHashSet、TreeSet三者比较</h3><ol>
+<li>都是不可重复的</li>
+<li>都是线程不安全的</li>
+<li>效率 HashSet &gt; LinkedHashSet &gt; TreeSet</li>
+<li>HashSet和LinkdeHashSet允许存在null数据，TreeSet插入null时会报NullPointerException</li>
+</ol>
 
       
 
@@ -714,6 +714,14 @@
         		<li class="article-tag-list-item">
         			<a href="/categories/Java基础//" class="article-tag-list-link color2">Java基础</a>
         		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Java基础/集合//" class="article-tag-list-link color3">集合</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Java基础/集合/比较//" class="article-tag-list-link color3">比较</a>
+        		</li>
       		
 		</ul>
 	</div>
@@ -721,7 +729,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/24/Java%E5%9F%BA%E7%A1%80/%E5%8C%85%E8%A3%85%E7%B1%BB/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/03/25/Java%E5%9F%BA%E7%A1%80/Collection%20Set%E6%8E%A5%E5%8F%A3/">展开全文 >></a>
         </p>
       
 
@@ -751,58 +759,64 @@
 
 
   
-    <article id="post-Java基础/final、finally、finalize的区别" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Java基础/Collection List接口" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/24/Java%E5%9F%BA%E7%A1%80/final%E3%80%81finally%E3%80%81finalize%E7%9A%84%E5%8C%BA%E5%88%AB/">final、finally、finalize的区别</a>
+      <a class="article-title" href="/2020/03/25/Java%E5%9F%BA%E7%A1%80/Collection%20List%E6%8E%A5%E5%8F%A3/">Collection——List接口</a>
     </h1>
   
 
         
-        <a href="/2020/03/24/Java%E5%9F%BA%E7%A1%80/final%E3%80%81finally%E3%80%81finalize%E7%9A%84%E5%8C%BA%E5%88%AB/" class="archive-article-date">
-  	<time datetime="2020-03-24T10:35:15.282Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-24</time>
+        <a href="/2020/03/25/Java%E5%9F%BA%E7%A1%80/Collection%20List%E6%8E%A5%E5%8F%A3/" class="archive-article-date">
+  	<time datetime="2020-03-25T06:18:54.193Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-25</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="final："><a href="#final：" class="headerlink" title="final："></a>final：</h3><p>可以用来修饰：类，方法，变量</p>
-<table>
+        <h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><ol>
+<li>有序的</li>
+<li>可重复的</li>
+<li>添加的对象，所在的类要重写equals()方法</li>
+</ol>
+<h3 id="实现类"><a href="#实现类" class="headerlink" title="实现类"></a>实现类</h3><table>
 <thead>
 <tr>
-<th align="center">可修饰</th>
-<th>说明</th>
+<th>List接口实现类</th>
+<th></th>
 </tr>
 </thead>
 <tbody><tr>
-<td align="center">类</td>
-<td>该方法不可被继承（ex: String,System,StringBuffer）</td>
+<td>ArrayList</td>
+<td>List接口的主要实现类。线程不安全，效率高，底层使用Object[ ] elementData储存</td>
 </tr>
 <tr>
-<td align="center">方法</td>
-<td>该方法不可被重写（ex:  Object类中的getClass()  )</td>
+<td>LinkedList</td>
+<td>线程不安全，对于频繁的插入、删除操作，效率比Arraylist高。底层使用双向链表储存</td>
 </tr>
 <tr>
-<td align="center">变量</td>
-<td>该变量为一常量</td>
+<td>Vector</td>
+<td>List接口的古老实现类，线程安全，效率低，底层使用Object[ ] elementData储存</td>
 </tr>
 </tbody></table>
-<p>注意：<strong><em>abstract</em></strong>只能修饰：<u>类 和 方法</u></p>
-<p>但是不能修饰私有方法，静态方法，final的方法，final的类。</p>
-<hr>
-<h3 id="finally"><a href="#finally" class="headerlink" title="finally:"></a>finally:</h3><p>finally是异常处理try catch finally里的一部分</p>
-<ol>
-<li>finally是可以省略的</li>
-<li>finally中声明的代码一定会执行。</li>
-<li>想数据库连接，输入输出流等资源，JVM是不能自动回收的。我们手动释放资源就需要声明在finally中。</li>
-</ol>
-<h3 id="finalize"><a href="#finalize" class="headerlink" title="finalize"></a>finalize</h3><p>finalize()是在java.lang.Object里定义的.finalize()方法是GC（garbage collector）运行机制的一部分，在GC清理它所从属的对象时调用该方法。</p>
+<h3 id="ArrayList源码分析"><a href="#ArrayList源码分析" class="headerlink" title="ArrayList源码分析"></a>ArrayList源码分析</h3><h4 id="JDK-7的情况下"><a href="#JDK-7的情况下" class="headerlink" title="JDK 7的情况下"></a>JDK 7的情况下</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ArrayList list = <span class="keyword">new</span> ArrayList(); <span class="comment">//底层创建长度为10的Object[]数组 elementData</span></span><br><span class="line">list.add(<span class="number">1</span>);<span class="comment">// elementData[0] = new Integer(1)</span></span><br><span class="line">...</span><br><span class="line">list.add(<span class="number">11</span>);<span class="comment">// 若此次添加导致elementData数组容量不足，则扩容。默认情况下，扩容为原容量的1.5倍，同时将原数组的数据复制到新数组中</span></span><br></pre></td></tr></table></figure>
 
+<h4 id="JDK-8的变化"><a href="#JDK-8的变化" class="headerlink" title="JDK 8的变化"></a>JDK 8的变化</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ArrayList list = <span class="keyword">new</span> ArrayList(); <span class="comment">//底层Object[] elementData初始化为&#123;&#125;，并没有直接创建长度为10的数组</span></span><br><span class="line">list.add(<span class="number">1</span>);<span class="comment">//第一次添加操作时，才创建长度为10的数组，并将数据添加到elementData[0]</span></span><br></pre></td></tr></table></figure>
+
+<p>其他与JDK7一样</p>
+<p>结论： JDK7中的ArrayList的对象的创建类似于单例的<strong>饿汉式</strong>，而JDK8中的ArrayList的对象的创建类似于单例的<strong>懒汉式</strong>，延迟了数组的创建，节省内存。</p>
+<h3 id="LinkedList源码分析"><a href="#LinkedList源码分析" class="headerlink" title="LinkedList源码分析"></a>LinkedList源码分析</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">LinkedList list = <span class="keyword">new</span> LinkedList(); <span class="comment">//内部声明了Node类型的first和last属性，默认值为null</span></span><br><span class="line">list.add(<span class="number">1</span>); <span class="comment">//将1封装到Node中，创建了Node对象</span></span><br></pre></td></tr></table></figure>
+
+<p>Node的定义为：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Node</span>&lt;<span class="title">E</span>&gt; </span>&#123;</span><br><span class="line">            E item;</span><br><span class="line">            Node&lt;E&gt; next;</span><br><span class="line">            Node&lt;E&gt; prev;</span><br><span class="line"></span><br><span class="line">            Node(Node&lt;E&gt; prev, E element, Node&lt;E&gt; next) &#123;</span><br><span class="line">            <span class="keyword">this</span>.item = element;</span><br><span class="line">            <span class="keyword">this</span>.next = next;</span><br><span class="line">            <span class="keyword">this</span>.prev = prev;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="Vector源码分析"><a href="#Vector源码分析" class="headerlink" title="Vector源码分析"></a>Vector源码分析</h4><p>JDK7和JDK8中，通过Vector( )构造器创建对象时，底层都创建了长度为10的数组。默认扩容为原来数组长度的2倍</p>
+<h3 id="ArrayList、LinkedList、Vectror三者的比较"><a href="#ArrayList、LinkedList、Vectror三者的比较" class="headerlink" title="ArrayList、LinkedList、Vectror三者的比较"></a>ArrayList、LinkedList、Vectror三者的比较</h3>
       
 
        
@@ -818,6 +832,14 @@
         		<li class="article-tag-list-item">
         			<a href="/categories/Java基础//" class="article-tag-list-link color2">Java基础</a>
         		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Java基础/集合//" class="article-tag-list-link color3">集合</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Java基础/集合/比较//" class="article-tag-list-link color3">比较</a>
+        		</li>
       		
 		</ul>
 	</div>
@@ -825,7 +847,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/24/Java%E5%9F%BA%E7%A1%80/final%E3%80%81finally%E3%80%81finalize%E7%9A%84%E5%8C%BA%E5%88%AB/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/03/25/Java%E5%9F%BA%E7%A1%80/Collection%20List%E6%8E%A5%E5%8F%A3/">展开全文 >></a>
         </p>
       
 
@@ -855,37 +877,222 @@
 
 
   
-    <article id="post-Java基础/equals()与==的比较" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Java基础/Collection" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/24/Java%E5%9F%BA%E7%A1%80/equals()%E4%B8%8E==%E7%9A%84%E6%AF%94%E8%BE%83/">数组的常见算法及冒泡排序</a>
+      <a class="article-title" href="/2020/03/25/Java%E5%9F%BA%E7%A1%80/Collection/">Collection</a>
     </h1>
   
 
         
-        <a href="/2020/03/24/Java%E5%9F%BA%E7%A1%80/equals()%E4%B8%8E==%E7%9A%84%E6%AF%94%E8%BE%83/" class="archive-article-date">
-  	<time datetime="2020-03-24T10:28:28.939Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-24</time>
+        <a href="/2020/03/25/Java%E5%9F%BA%E7%A1%80/Collection/" class="archive-article-date">
+  	<time datetime="2020-03-25T06:10:37.590Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-25</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="equals-与-的比较"><a href="#equals-与-的比较" class="headerlink" title="equals()与==的比较"></a>equals()与==的比较</h3><h4 id="equals-："><a href="#equals-：" class="headerlink" title="equals()："></a>equals()：</h4><ol>
-<li>equals（）是一个方法，只适用于引用数据类型</li>
-<li>Object类中的equals()方法和==的作用是相同的，都是  <u>比较像个对象的地址值</u>  是否相同。</li>
-<li>有些类，像String、Date都重写了equals()方法。重写后比较的是 <u>内容</u> 是否相等。</li>
+        <p><img src="C:%5CUsers%5Cmeilleurtime%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200325141235309.png" alt="image-20200325141235309"></p>
+<h4 id="Collection接口：单列结合"><a href="#Collection接口：单列结合" class="headerlink" title="Collection接口：单列结合"></a>Collection接口：单列结合</h4><p>—–<strong>List接口: 储存有序的、可重复的数据</strong></p>
+<p>​            —–ArrayList、LinkedList、Vector</p>
+<p>—–<strong>Set接口:储存无序的、不可重复的数据</strong></p>
+<p>​            —–HashSet、LinkedHashSet、TreeSet</p>
+
+      
+
+       
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Java基础//" class="article-tag-list-link color2">Java基础</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Java基础/集合//" class="article-tag-list-link color3">集合</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/03/25/Java%E5%9F%BA%E7%A1%80/Collection/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Java基础/数组与集合" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/25/Java%E5%9F%BA%E7%A1%80/%E6%95%B0%E7%BB%84%E4%B8%8E%E9%9B%86%E5%90%88/">数组与集合</a>
+    </h1>
+  
+
+        
+        <a href="/2020/03/25/Java%E5%9F%BA%E7%A1%80/%E6%95%B0%E7%BB%84%E4%B8%8E%E9%9B%86%E5%90%88/" class="archive-article-date">
+  	<time datetime="2020-03-25T05:00:10.557Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>集合、数组都是对多个数据进行存储操作的结构，简称Java容器</p>
+<h3 id="数组存储的特点"><a href="#数组存储的特点" class="headerlink" title="数组存储的特点"></a>数组存储的特点</h3><ol>
+<li>一旦初始化后，长度就确定了</li>
+<li>一旦定义后，元素类型确定了，只能操作指定的元素类型</li>
 </ol>
-<h4 id=""><a href="#" class="headerlink" title="== :"></a>== :</h4><ol>
-<li><p>==是运算符，基本数据类型与引用数据类型的变量都可以使用</p>
+<h3 id="数组储存存在的问题"><a href="#数组储存存在的问题" class="headerlink" title="数组储存存在的问题"></a>数组储存存在的问题</h3><ol>
+<li>初始化后，长度不可修改</li>
+<li>方法有限，增删改查不方便，效率不高</li>
+<li>数组的特点是有序，可重复。对于无序、不可重复的需求无法满足</li>
+</ol>
+<p><strong>集合可以解决数组存在的问题</strong></p>
+
+      
+
+       
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Java基础//" class="article-tag-list-link color2">Java基础</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Java基础/比较//" class="article-tag-list-link color3">比较</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/03/25/Java%E5%9F%BA%E7%A1%80/%E6%95%B0%E7%BB%84%E4%B8%8E%E9%9B%86%E5%90%88/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Java基础/Java比较器Comparable与Comparator接口" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/25/Java%E5%9F%BA%E7%A1%80/Java%E6%AF%94%E8%BE%83%E5%99%A8Comparable%E4%B8%8EComparator%E6%8E%A5%E5%8F%A3/">Java比较器Comparable与Comparator接口</a>
+    </h1>
+  
+
+        
+        <a href="/2020/03/25/Java%E5%9F%BA%E7%A1%80/Java%E6%AF%94%E8%BE%83%E5%99%A8Comparable%E4%B8%8EComparator%E6%8E%A5%E5%8F%A3/" class="archive-article-date">
+  	<time datetime="2020-03-25T04:43:57.057Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="使用背景"><a href="#使用背景" class="headerlink" title="使用背景"></a>使用背景</h3><p>正常情况下，Java对象只能使用 == 或 != 进行比较。但是实际开发中，需要对多个对象进行排序。</p>
+<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><p>通过实现Comparable或Comparator接口来实现</p>
+<h3 id="自然排序——使用Comparable接口"><a href="#自然排序——使用Comparable接口" class="headerlink" title="自然排序——使用Comparable接口"></a>自然排序——使用Comparable接口</h3><ol>
+<li>String、包装类等实现了Comparable接口，重写了compareTo(obj)方法，给出了比较两个对象大小的方式。</li>
+<li>String、包装类重写compareTo()方法以后，进行了从小到大的排列</li>
+<li>重写compareTo()方法规则：<ul>
+<li>如果当前对象this大于形参对象obj，则返回正整数</li>
+<li>如果当前对象this小于形参对象obj，则返回负整数</li>
+<li>如果当前对象this等于形参对象obj，则返回零</li>
+</ul>
 </li>
-<li><p>基本数据类型，比较的是两个变量保存的数据值是否相等（数据类型不一定要相同）</p>
-<p>引用数据类型，比较的是两个对象地址值是否相同（数据类型要一致）</p>
+<li>对于自定义类来说，如果需要排序，我们可以让自定义类实现Comparable接口，重写compareTo(obj)方法。在compareTo(obj)方法中指明如何排序</li>
+</ol>
+<h3 id="定制排序——使用Comparator接口"><a href="#定制排序——使用Comparator接口" class="headerlink" title="定制排序——使用Comparator接口"></a>定制排序——使用Comparator接口</h3><p>当元素的类型<strong>没实现java.lang.Comparable接口</strong>而又不方便修改代码，或者实现了java.lang.Comparable接口的<strong>排序规则不适合当前的操作</strong>，那么可以考虑使用 Comparator 的对象来排序</p>
+<p>重写compare(Object o1,Object o2)方法，比较o1和o2的大小：</p>
+<ul>
+<li><p>如果方法返回正整数，则表示o1大于o2</p>
 </li>
+<li><p>返回负整数，表示o1小于o2</p>
+</li>
+<li><p>如果返回0，表示相等；</p>
+</li>
+</ul>
+<h3 id="二者比较"><a href="#二者比较" class="headerlink" title="二者比较"></a>二者比较</h3><ol>
+<li>Comparable接口的方式一旦确定，保证Comparable接口实现类的对象在任何位置都可以比较大小。</li>
+<li>Comparator接口属于临时性的比较</li>
 </ol>
 
       
@@ -903,78 +1110,9 @@
         		<li class="article-tag-list-item">
         			<a href="/categories/Java基础//" class="article-tag-list-link color2">Java基础</a>
         		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/24/Java%E5%9F%BA%E7%A1%80/equals()%E4%B8%8E==%E7%9A%84%E6%AF%94%E8%BE%83/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Java基础/String、StringBuffer、StringBuilder的区别？" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/24/Java%E5%9F%BA%E7%A1%80/String%E3%80%81StringBuffer%E3%80%81StringBuilder%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F/">String、StringBuffer、StringBuilder的区别？</a>
-    </h1>
-  
-
-        
-        <a href="/2020/03/24/Java%E5%9F%BA%E7%A1%80/String%E3%80%81StringBuffer%E3%80%81StringBuilder%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F/" class="archive-article-date">
-  	<time datetime="2020-03-24T09:49:42.338Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="String、StringBuffer、StringBuilder的区别？"><a href="#String、StringBuffer、StringBuilder的区别？" class="headerlink" title="String、StringBuffer、StringBuilder的区别？"></a>String、StringBuffer、StringBuilder的区别？</h3>
-      
-
-       
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
+      		 
         		<li class="article-tag-list-item">
-        			<a href="/categories/Java基础//" class="article-tag-list-link color2">Java基础</a>
+        			<a href="/categories/Java基础/比较//" class="article-tag-list-link color3">比较</a>
         		</li>
       		
 		</ul>
@@ -983,84 +1121,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/24/Java%E5%9F%BA%E7%A1%80/String%E3%80%81StringBuffer%E3%80%81StringBuilder%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Java基础/throws与throw的区别？" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/24/Java%E5%9F%BA%E7%A1%80/throws%E4%B8%8Ethrow%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F/">throws与throw的区别？</a>
-    </h1>
-  
-
-        
-        <a href="/2020/03/24/Java%E5%9F%BA%E7%A1%80/throws%E4%B8%8Ethrow%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F/" class="archive-article-date">
-  	<time datetime="2020-03-24T09:49:18.193Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="throws与throw的区别？"><a href="#throws与throw的区别？" class="headerlink" title="throws与throw的区别？"></a>throws与throw的区别？</h3><h4 id="throws"><a href="#throws" class="headerlink" title="throws"></a>throws</h4><p>“throws + 异常类型”写在方法的声明处。指明此方法执行时，可能会抛出的异常类型。<br>一旦当方法体执行时，出现异常，仍会在异常代码处生成一个异常类的对象，此对象满足throws后异常类型时，就会被抛出。异常代码后续的代码，就不再执行！</p>
-<p>throws的方式只是将异常抛给了方法的调用者。并没真正将异常处理掉。  </p>
-<h4 id="throw"><a href="#throw" class="headerlink" title="throw"></a>throw</h4><p>手动的throw一个异常类的对象</p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>throw 表示抛出一个异常类的对象，生成异常对象的过程。声明在方法体内。<br>throws 属于异常处理的一种方式，声明在方法的声明处。</p>
-
-      
-
-       
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Java基础//" class="article-tag-list-link color2">Java基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/24/Java%E5%9F%BA%E7%A1%80/throws%E4%B8%8Ethrow%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/03/25/Java%E5%9F%BA%E7%A1%80/Java%E6%AF%94%E8%BE%83%E5%99%A8Comparable%E4%B8%8EComparator%E6%8E%A5%E5%8F%A3/">展开全文 >></a>
         </p>
       
 
@@ -1092,7 +1153,7 @@
   
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
     </nav>
   
 

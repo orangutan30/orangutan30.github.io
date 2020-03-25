@@ -167,41 +167,35 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-Hibernate/Hibernate_管理Session" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Hibernate/Hibernate_多对一和一对一关联的检索策略" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/02/13/Hibernate/Hibernate_%E7%AE%A1%E7%90%86Session/">Hibernate -- 管理Session</a>
+      <a class="article-title" href="/2020/02/13/Hibernate/Hibernate_%E5%A4%9A%E5%AF%B9%E4%B8%80%E5%92%8C%E4%B8%80%E5%AF%B9%E4%B8%80%E5%85%B3%E8%81%94%E7%9A%84%E6%A3%80%E7%B4%A2%E7%AD%96%E7%95%A5/">多对一和一对一关联的检索策略</a>
     </h1>
   
 
         
-        <a href="/2020/02/13/Hibernate/Hibernate_%E7%AE%A1%E7%90%86Session/" class="archive-article-date">
-  	<time datetime="2020-02-13T08:14:10.978Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-13</time>
+        <a href="/2020/02/13/Hibernate/Hibernate_%E5%A4%9A%E5%AF%B9%E4%B8%80%E5%92%8C%E4%B8%80%E5%AF%B9%E4%B8%80%E5%85%B3%E8%81%94%E7%9A%84%E6%A3%80%E7%B4%A2%E7%AD%96%E7%95%A5/" class="archive-article-date">
+  	<time datetime="2020-02-13T08:17:29.895Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-13</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="Hibernate-自身提供了三种管理-Session-对象的方法"><a href="#Hibernate-自身提供了三种管理-Session-对象的方法" class="headerlink" title="Hibernate  自身提供了三种管理 Session 对象的方法:"></a>Hibernate  自身提供了三种管理 Session 对象的方法:</h4><ol>
-<li>Session 对象的生命周期与本地线程绑定</li>
-<li>Session 对象的生命周期与 JTA 事务绑定</li>
-<li>Hibernate 委托程序管理 Session 对象的生命周期</li>
-</ol>
-<p>在 Hibernate 的配置文件中, hibernate.current_session_context_class 属性用于指定 Session 管理方式, 可选值包括:</p>
-<h5 id="1-thread-Session-对象的生命周期与本地线程绑定"><a href="#1-thread-Session-对象的生命周期与本地线程绑定" class="headerlink" title="1. thread: Session 对象的生命周期与本地线程绑定"></a>1. thread: Session 对象的生命周期与本地线程绑定</h5><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 配置管理Session的方式--&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"current_session_context_class"</span>&gt;</span>thread<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>   如果hibernate.current_session_context_class 属性值设为 thread, Hibernate 就会按照与本地线程绑定的方式来管理 Session：</p>
-<ul>
-<li>当一个线程(threadA)第一次调用 SessionFactory 对象的 getCurrentSession() 方法时, 该方法会创建一个新的 Session(sessionA) 对象, 把该对象与 threadA 绑定, 并将 sessionA 返回</li>
-<li>当 threadA 再次调用 SessionFactory 对象的 getCurrentSession() 方法时, 该方法将返回 sessionA 对象</li>
-<li>当 threadA 提交 sessionA 对象关联的事务时, Hibernate 会自动flush sessionA 对象的缓存, 然后提交事务, 关闭 sessionA 对象. 当 threadA 撤销 sessionA 对象关联的事务时, 也会自动关闭 sessionA 对象</li>
-<li>若 threadA 再次调用 SessionFactory 对象的 getCurrentSession() 方法时, 该方法会又创建一个新的 Session(sessionB) 对象, 把该对象与 threadA 绑定, 并将 sessionB 返回</li>
-</ul>
-<h5 id="2-jta-Session-对象的生命周期与-JTA-事务绑定"><a href="#2-jta-Session-对象的生命周期与-JTA-事务绑定" class="headerlink" title="2. jta*: Session 对象的生命周期与 JTA 事务绑定"></a>2. jta*: Session 对象的生命周期与 JTA 事务绑定</h5><h5 id="3-managed-Hibernate-委托程序来管理-Session-对象的生命周期"><a href="#3-managed-Hibernate-委托程序来管理-Session-对象的生命周期" class="headerlink" title="3. managed: Hibernate 委托程序来管理 Session 对象的生命周期"></a>3. managed: Hibernate 委托程序来管理 Session 对象的生命周期</h5>
+        <h5 id="在映射文件中，用-lt-many-to-one-gt-或-lt-one-to-one-gt-元素的来配置-一对多关联-和-多对多关联关系-有lazy、fetch、batch-size三个属性。注意：batch-size设置在-lt-class-gt-节点上"><a href="#在映射文件中，用-lt-many-to-one-gt-或-lt-one-to-one-gt-元素的来配置-一对多关联-和-多对多关联关系-有lazy、fetch、batch-size三个属性。注意：batch-size设置在-lt-class-gt-节点上" class="headerlink" title="在映射文件中，用&lt;many to one &gt;或&lt;one to one&gt;元素的来配置 一对多关联 和 多对多关联关系,有lazy、fetch、batch-size三个属性。注意：batch-size设置在&lt;class&gt;节点上"></a>在映射文件中，用<code>&lt;many to one &gt;或&lt;one to one&gt;</code>元素的来配置 一对多关联 和 多对多关联关系,有lazy、fetch、batch-size三个属性。<strong><em>注意：batch-size设置在<code>&lt;class&gt;</code>节点上</em></strong></h5><hr>
+<h3 id="属性："><a href="#属性：" class="headerlink" title="属性："></a>属性：</h3><pre><code>- lazy：有以下3个取值：
+    1.proxy: 延迟检索（默认值）
+    2.no-proxy:无代理延迟检索
+    3.FALSE:立即检索
+- fetch:有以下3个取值：
+    1.select: 默认值
+    2.join: lazy属性将被忽略。使用Query的list()方法会忽略fetch = join。取值为join时,表示使用迫切左外连接的方式初始化 n 关联的 1 的一端的属性。
+- batch-size:当批量检索 n 关联的 1 的一端的属性时，可以在 1 的一端class元素下设置batch-size属性来减少SQL语句数量。</code></pre>
       
 
        
@@ -224,7 +218,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/02/13/Hibernate/Hibernate_%E7%AE%A1%E7%90%86Session/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/02/13/Hibernate/Hibernate_%E5%A4%9A%E5%AF%B9%E4%B8%80%E5%92%8C%E4%B8%80%E5%AF%B9%E4%B8%80%E5%85%B3%E8%81%94%E7%9A%84%E6%A3%80%E7%B4%A2%E7%AD%96%E7%95%A5/">展开全文 >></a>
         </p>
       
 
@@ -254,33 +248,130 @@
 
 
   
-    <article id="post-Hibernate/Hibernate_批量处理数据" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Hibernate/Hibernate_一对多和多对多的检索策略" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/02/13/Hibernate/Hibernate_%E6%89%B9%E9%87%8F%E5%A4%84%E7%90%86%E6%95%B0%E6%8D%AE/">Hibernate -- 批量处理数据</a>
+      <a class="article-title" href="/2020/02/13/Hibernate/Hibernate_%E4%B8%80%E5%AF%B9%E5%A4%9A%E5%92%8C%E5%A4%9A%E5%AF%B9%E5%A4%9A%E7%9A%84%E6%A3%80%E7%B4%A2%E7%AD%96%E7%95%A5/">一对多和多对多的检索策略</a>
     </h1>
   
 
         
-        <a href="/2020/02/13/Hibernate/Hibernate_%E6%89%B9%E9%87%8F%E5%A4%84%E7%90%86%E6%95%B0%E6%8D%AE/" class="archive-article-date">
-  	<time datetime="2020-02-13T08:13:55.307Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-13</time>
+        <a href="/2020/02/13/Hibernate/Hibernate_%E4%B8%80%E5%AF%B9%E5%A4%9A%E5%92%8C%E5%A4%9A%E5%AF%B9%E5%A4%9A%E7%9A%84%E6%A3%80%E7%B4%A2%E7%AD%96%E7%95%A5/" class="archive-article-date">
+  	<time datetime="2020-02-13T08:17:16.916Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-13</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>通常情况下指批量添加、删除、修改，主要有以下几种方式：</p>
-<ul>
-<li>通过Session</li>
-<li>通过HQL</li>
-<li>通过StatelessSession</li>
-<li>通过 <font color=red>JDBC API</font>（推荐使用第四种方式）</li>
+        <h5 id="在映射文件中，用-lt-set-gt-元素的来配置-一对多关联-和-多对多关联关系-有lazy、fetch、batch-size三个属性。"><a href="#在映射文件中，用-lt-set-gt-元素的来配置-一对多关联-和-多对多关联关系-有lazy、fetch、batch-size三个属性。" class="headerlink" title="在映射文件中，用&lt;set&gt;元素的来配置 一对多关联 和 多对多关联关系,有lazy、fetch、batch-size三个属性。"></a>在映射文件中，用<code>&lt;set&gt;</code>元素的来配置 一对多关联 和 多对多关联关系,有lazy、fetch、batch-size三个属性。</h5><hr>
+<h3 id="set元素的属性—lazy"><a href="#set元素的属性—lazy" class="headerlink" title="set元素的属性—lazy"></a>set元素的属性—lazy</h3><pre><code>- lazy：决定orders集合被初始化的时机。即是在加载Customer对象时就进行初始化，还是在程序访问orders集合时被初始化。
+- fetch:有以下3个取值：
+    1.select:
+    2.subselect:
+    3.join:
+    取值为 “select” 或 “subselect” 时, 决定初始化 orders 的查询语句的形式。
+    若取值为”join”, 则决定 orders 集合被初始化的时机,lazy属性将被忽略。
+- batch-size:用来为延迟检索策略或立即检索策略设定批量检索的数量. 批量检索能减少 SELECT 语句的数目, 提高延迟检索或立即检索的运行性能。</code></pre><ul>
+<li>一对多 或 多对多 的集合属性默认使用懒加载检索策略，可以通过<code>&lt;set&gt;</code>的 <u>lazy</u> 属性来修改默认的检索策略。默认为true,并不建议设置为false。lazy属性来修改默认的检索策略。默认为true,并不建议设置为false。</li>
 </ul>
+        
+          <a class="article-more-a" href="/2020/02/13/Hibernate/Hibernate_%E4%B8%80%E5%AF%B9%E5%A4%9A%E5%92%8C%E5%A4%9A%E5%AF%B9%E5%A4%9A%E7%9A%84%E6%A3%80%E7%B4%A2%E7%AD%96%E7%95%A5/#more">more >></a>
+        
+      
+
+       
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/hibernate//" class="article-tag-list-link color5">hibernate</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/02/13/Hibernate/Hibernate_%E4%B8%80%E5%AF%B9%E5%A4%9A%E5%92%8C%E5%A4%9A%E5%AF%B9%E5%A4%9A%E7%9A%84%E6%A3%80%E7%B4%A2%E7%AD%96%E7%95%A5/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Hibernate/Hibernate_类级别的检索策略" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/13/Hibernate/Hibernate_%E7%B1%BB%E7%BA%A7%E5%88%AB%E7%9A%84%E6%A3%80%E7%B4%A2%E7%AD%96%E7%95%A5/">类级别的检索策略</a>
+    </h1>
+  
+
+        
+        <a href="/2020/02/13/Hibernate/Hibernate_%E7%B1%BB%E7%BA%A7%E5%88%AB%E7%9A%84%E6%A3%80%E7%B4%A2%E7%AD%96%E7%95%A5/" class="archive-article-date">
+  	<time datetime="2020-02-13T08:16:57.156Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="类级别的检索策略可以通过-lt-class-gt-元素的lazy属性进行设置-gt-lazy属性进行设置"><a href="#类级别的检索策略可以通过-lt-class-gt-元素的lazy属性进行设置-gt-lazy属性进行设置" class="headerlink" title="类级别的检索策略可以通过&lt;class&gt;元素的lazy属性进行设置&gt;lazy属性进行设置"></a>类级别的检索策略可以通过<code>&lt;class&gt;</code>元素的<u>lazy</u>属性进行设置&gt;lazy属性进行设置</h5><hr>
+<h4 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h4><h5 id="1-立即检索——立即加载检索方法指定的对象"><a href="#1-立即检索——立即加载检索方法指定的对象" class="headerlink" title="1.立即检索——立即加载检索方法指定的对象"></a>1.立即检索——立即加载检索方法指定的对象</h5><h5 id="2-延迟检索——延迟加载检索方法指定的对象（默认情况-lasy-true）在使用具体的属性时，再进行加载。"><a href="#2-延迟检索——延迟加载检索方法指定的对象（默认情况-lasy-true）在使用具体的属性时，再进行加载。" class="headerlink" title="2.延迟检索——延迟加载检索方法指定的对象（默认情况 lasy = true）在使用具体的属性时，再进行加载。"></a>2.延迟检索——延迟加载检索方法指定的对象（默认情况 lasy = true）在使用具体的属性时，再进行加载。</h5><ul>
+<li>如果程序加载一个对象的目的是为了访问它的属性，这个时候我们采用<u>立即检索</u>。</li>
+<li>如果程序加载一个对象的目的仅是为了获得它的引用，则采用<u>延迟加载</u>。注意可能出现懒加载异常！</li>
+<li>lazy属性<em>仅对<u>load()</u>方法有效方法有效</em>。<u>Session的get()和Query的list()方法在类级别只能使用立即检索策略</u>。</li>
+<li>class元素属性为true时，load()方法不会执行查询数据表的select语句，仅返回代理对象的实例，该实例有如下特征：<ol>
+<li>由 Hibernate 在运行时采用 CGLIB 工具动态生成</li>
+<li>Hibernate 创建代理类实例时, 仅初始化其 OID 属性</li>
+<li>在第一次访问代理类实例的非 OID 属性时, Hibernate 会初始化代理类实例</li>
+</ol>
+</li>
+</ul>
+<hr>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><ol>
+<li>通常情况下使用默认值 lazy = true</li>
+<li>这个检索策略仅适用于 load() 方法</li>
+<li>注意懒加载异常</li>
+</ol>
 
       
 
@@ -304,7 +395,608 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/02/13/Hibernate/Hibernate_%E6%89%B9%E9%87%8F%E5%A4%84%E7%90%86%E6%95%B0%E6%8D%AE/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/02/13/Hibernate/Hibernate_%E7%B1%BB%E7%BA%A7%E5%88%AB%E7%9A%84%E6%A3%80%E7%B4%A2%E7%AD%96%E7%95%A5/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Hibernate/Hibernate_检索策略小结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/13/Hibernate/Hibernate_%E6%A3%80%E7%B4%A2%E7%AD%96%E7%95%A5%E5%B0%8F%E7%BB%93/">检索策略小结</a>
+    </h1>
+  
+
+        
+        <a href="/2020/02/13/Hibernate/Hibernate_%E6%A3%80%E7%B4%A2%E7%AD%96%E7%95%A5%E5%B0%8F%E7%BB%93/" class="archive-article-date">
+  	<time datetime="2020-02-13T08:16:43.081Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="类级别和关联级别可选的检索策略及默认的检索策略"><a href="#类级别和关联级别可选的检索策略及默认的检索策略" class="headerlink" title="类级别和关联级别可选的检索策略及默认的检索策略:"></a>类级别和关联级别可选的检索策略及默认的检索策略:</h4><table>
+    <tr>
+        <th>检索策略的作用域</th>
+        <th>可选的检索策略</th>
+        <th>默认的检索策略</th>
+        <th>运行时行为受影响的检索策略</th>
+    </tr >
+    <tr >
+        <td >类级别</td>
+        <td >立即检索<br>延迟检索</td>
+        <td rowspan="1">延迟检索</td>
+        <td >仅对session的load()方法有影响</td>
+    </tr>
+    <tr>
+        <td>关联级别</td>
+        <td rowspan = "">立即检索<br>延迟检索<br>迫切左外连接检索</td>
+        <td>延迟检索</td>
+        <td>影响session的get()和load()方法<br>Query API会忽略迫切左外连接检索策略</td>
+    </tr>
+</table>
+
+<hr>
+        
+          <a class="article-more-a" href="/2020/02/13/Hibernate/Hibernate_%E6%A3%80%E7%B4%A2%E7%AD%96%E7%95%A5%E5%B0%8F%E7%BB%93/#more">more >></a>
+        
+      
+
+       
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/hibernate//" class="article-tag-list-link color5">hibernate</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/02/13/Hibernate/Hibernate_%E6%A3%80%E7%B4%A2%E7%AD%96%E7%95%A5%E5%B0%8F%E7%BB%93/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Hibernate/Hibernate_检索方式—HQL检索方式（4个查询方式）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/13/Hibernate/Hibernate_%E6%A3%80%E7%B4%A2%E6%96%B9%E5%BC%8F%E2%80%94HQL%E6%A3%80%E7%B4%A2%E6%96%B9%E5%BC%8F%EF%BC%884%E4%B8%AA%E6%9F%A5%E8%AF%A2%E6%96%B9%E5%BC%8F%EF%BC%89/">Hibernate -- 检索方式——HQL检索方式（4个查询方式）</a>
+    </h1>
+  
+
+        
+        <a href="/2020/02/13/Hibernate/Hibernate_%E6%A3%80%E7%B4%A2%E6%96%B9%E5%BC%8F%E2%80%94HQL%E6%A3%80%E7%B4%A2%E6%96%B9%E5%BC%8F%EF%BC%884%E4%B8%AA%E6%9F%A5%E8%AF%A2%E6%96%B9%E5%BC%8F%EF%BC%89/" class="archive-article-date">
+  	<time datetime="2020-02-13T08:16:28.229Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="4个查询方式："><a href="#4个查询方式：" class="headerlink" title="4个查询方式："></a>4个查询方式：</h3><ul>
+<li>分页查询</li>
+<li>命名查询</li>
+<li>投影查询</li>
+<li>报表查询</li>
+</ul>
+<hr>
+        
+          <a class="article-more-a" href="/2020/02/13/Hibernate/Hibernate_%E6%A3%80%E7%B4%A2%E6%96%B9%E5%BC%8F%E2%80%94HQL%E6%A3%80%E7%B4%A2%E6%96%B9%E5%BC%8F%EF%BC%884%E4%B8%AA%E6%9F%A5%E8%AF%A2%E6%96%B9%E5%BC%8F%EF%BC%89/#more">more >></a>
+        
+      
+
+       
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/hibernate//" class="article-tag-list-link color5">hibernate</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/02/13/Hibernate/Hibernate_%E6%A3%80%E7%B4%A2%E6%96%B9%E5%BC%8F%E2%80%94HQL%E6%A3%80%E7%B4%A2%E6%96%B9%E5%BC%8F%EF%BC%884%E4%B8%AA%E6%9F%A5%E8%AF%A2%E6%96%B9%E5%BC%8F%EF%BC%89/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Hibernate/Hibernate_检索方式—HQL检索方式（基础部分）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/13/Hibernate/Hibernate_%E6%A3%80%E7%B4%A2%E6%96%B9%E5%BC%8F%E2%80%94HQL%E6%A3%80%E7%B4%A2%E6%96%B9%E5%BC%8F%EF%BC%88%E5%9F%BA%E7%A1%80%E9%83%A8%E5%88%86%EF%BC%89/">Hibernate -- 检索方式——HQL检索方式（基础部分）</a>
+    </h1>
+  
+
+        
+        <a href="/2020/02/13/Hibernate/Hibernate_%E6%A3%80%E7%B4%A2%E6%96%B9%E5%BC%8F%E2%80%94HQL%E6%A3%80%E7%B4%A2%E6%96%B9%E5%BC%8F%EF%BC%88%E5%9F%BA%E7%A1%80%E9%83%A8%E5%88%86%EF%BC%89/" class="archive-article-date">
+  	<time datetime="2020-02-13T08:16:13.528Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="检索方式分为5种："><a href="#检索方式分为5种：" class="headerlink" title="检索方式分为5种："></a>检索方式分为5种：</h5><ul>
+<li>导航对象图检索方式：根据已经加载的对象导航到其他对象</li>
+<li>OID检索方式：按照对象的OID来检索对象</li>
+<li>HQL检索方式：使用面向对象的HQL查询语言</li>
+<li>QBC检索方式：使用QBC（Query By Criteria）API来检索对象。这种API封装了基于字符串形式的查询语句，提供了更加面向对象的查询接口。</li>
+<li>本地SQL检索方式：使用本地数据库的SQL查询语句。</li>
+</ul>
+<hr>
+<h3 id="HQL检索方式"><a href="#HQL检索方式" class="headerlink" title="HQL检索方式"></a>HQL检索方式</h3><h4 id="1：定义"><a href="#1：定义" class="headerlink" title="1：定义:"></a>1：定义:</h4><p>HQL(Hibernate Query Language) 是面向对象的查询语言, 它和 SQL 查询语言有些相似. 在 Hibernate 提供的各种检索方式中, HQL 是使用最广的一种检索方式.</p>
+<h4 id="2：功能"><a href="#2：功能" class="headerlink" title="2：功能:"></a>2：功能:</h4><ul>
+<li>在查询语句中设定各种查询条件</li>
+<li>支持投影查询, 即仅检索出对象的部分属性</li>
+<li>支持分页查询</li>
+<li>支持连接查询</li>
+<li>支持分组查询, 允许使用 HAVING 和 GROUP BY 关键字</li>
+<li>提供内置聚集函数, 如 sum(), min() 和 max()</li>
+<li>支持子查询</li>
+<li>支持动态绑定参数</li>
+<li>能够调用 用户定义的 SQL 函数或标准的 SQL 函数</li>
+</ul>
+<h4 id="3：使用步骤"><a href="#3：使用步骤" class="headerlink" title="3：使用步骤"></a>3：使用步骤</h4><ul>
+<li>通过 Session 的 createQuery() 方法创建一个 Query 对象, 传入一个 HQL 查询语句. HQL 查询语句中可以包含命名参数</li>
+<li>动态绑定参数 （赋值）</li>
+<li>调用 Query 相关方法执行查询语句.</li>
+</ul>
+        
+          <a class="article-more-a" href="/2020/02/13/Hibernate/Hibernate_%E6%A3%80%E7%B4%A2%E6%96%B9%E5%BC%8F%E2%80%94HQL%E6%A3%80%E7%B4%A2%E6%96%B9%E5%BC%8F%EF%BC%88%E5%9F%BA%E7%A1%80%E9%83%A8%E5%88%86%EF%BC%89/#more">more >></a>
+        
+      
+
+       
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/hibernate//" class="article-tag-list-link color5">hibernate</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/02/13/Hibernate/Hibernate_%E6%A3%80%E7%B4%A2%E6%96%B9%E5%BC%8F%E2%80%94HQL%E6%A3%80%E7%B4%A2%E6%96%B9%E5%BC%8F%EF%BC%88%E5%9F%BA%E7%A1%80%E9%83%A8%E5%88%86%EF%BC%89/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Hibernate/Hibernate_HQL（迫切）内连接" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/13/Hibernate/Hibernate_HQL%EF%BC%88%E8%BF%AB%E5%88%87%EF%BC%89%E5%86%85%E8%BF%9E%E6%8E%A5/">Hibernate -- HQL(迫切)内连接</a>
+    </h1>
+  
+
+        
+        <a href="/2020/02/13/Hibernate/Hibernate_HQL%EF%BC%88%E8%BF%AB%E5%88%87%EF%BC%89%E5%86%85%E8%BF%9E%E6%8E%A5/" class="archive-article-date">
+  	<time datetime="2020-02-13T08:15:54.429Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="迫切内连接："><a href="#迫切内连接：" class="headerlink" title="迫切内连接："></a>迫切内连接：</h5><ul>
+<li>INNER JOIN FETCH 关键字表示迫切内连接, 也可以省略 INNER 关键字</li>
+<li>list() 方法返回的集合中存放 Department 对象的引用, 每个 Department 对象的 Employee 集合都被初始化, 存放所有关联的 Employee 对象<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testInnerJoinFetch</span><span class="params">()</span></span>&#123;</span><br><span class="line">      String hql = <span class="string">"FROM Department d INNER JOIN FETCH d.emps"</span>;</span><br><span class="line">      Query query = session.createQuery(hql);</span><br><span class="line"></span><br><span class="line">      List&lt;Department&gt; depts = query.list();</span><br><span class="line">      depts = <span class="keyword">new</span> ArrayList&lt;&gt;(<span class="keyword">new</span> LinkedHashSet(depts));</span><br><span class="line">      System.out.println(depts.size());</span><br><span class="line"></span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h5 id="内连接："><a href="#内连接：" class="headerlink" title="内连接："></a>内连接：</h5><ul>
+<li>INNER JOIN 关键字表示内连接, 也可以省略 INNER 关键字</li>
+<li>list() 方法的集合中存放的每个元素对应查询结果的一条记录, 每个元素都是对象数组类型</li>
+<li>如果希望 list() 方法的返回的集合仅包含 Department  对象, 可以在 HQL 查询语句中使用 SELECT 关键字</li>
+</ul>
+
+      
+
+       
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/hibernate//" class="article-tag-list-link color5">hibernate</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/hibernate/呵呵类//" class="article-tag-list-link color4">呵呵类</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/02/13/Hibernate/Hibernate_HQL%EF%BC%88%E8%BF%AB%E5%88%87%EF%BC%89%E5%86%85%E8%BF%9E%E6%8E%A5/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Hibernate/Hibernate_HQL(迫切)左外连接" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/13/Hibernate/Hibernate_HQL(%E8%BF%AB%E5%88%87)%E5%B7%A6%E5%A4%96%E8%BF%9E%E6%8E%A5/">Hibernate -- HQL(迫切)左外连接</a>
+    </h1>
+  
+
+        
+        <a href="/2020/02/13/Hibernate/Hibernate_HQL(%E8%BF%AB%E5%88%87)%E5%B7%A6%E5%A4%96%E8%BF%9E%E6%8E%A5/" class="archive-article-date">
+  	<time datetime="2020-02-13T08:15:31.096Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="迫切左外连接："><a href="#迫切左外连接：" class="headerlink" title="迫切左外连接："></a>迫切左外连接：</h5><ul>
+<li>LEFT JOIN FETCH 关键字表示迫切左外连接检索策略</li>
+<li>list() 方法返回的集合中存放实体对象的引用, 每个 Department 对象关联的 Employee  集合都被初始化, 存放所有关联的 Employee 的实体对象</li>
+<li>查询结果中可能会包含重复元素, 可以通过一个 HashSet 来过滤重复元素</li>
+</ul>
+        
+          <a class="article-more-a" href="/2020/02/13/Hibernate/Hibernate_HQL(%E8%BF%AB%E5%88%87)%E5%B7%A6%E5%A4%96%E8%BF%9E%E6%8E%A5/#more">more >></a>
+        
+      
+
+       
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/hibernate//" class="article-tag-list-link color5">hibernate</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/02/13/Hibernate/Hibernate_HQL(%E8%BF%AB%E5%88%87)%E5%B7%A6%E5%A4%96%E8%BF%9E%E6%8E%A5/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Hibernate/Hibernate_关联级别运行时的检索策略" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/13/Hibernate/Hibernate_%E5%85%B3%E8%81%94%E7%BA%A7%E5%88%AB%E8%BF%90%E8%A1%8C%E6%97%B6%E7%9A%84%E6%A3%80%E7%B4%A2%E7%AD%96%E7%95%A5/">Hibernate -- 关联级别运行时的检索策略</a>
+    </h1>
+  
+
+        
+        <a href="/2020/02/13/Hibernate/Hibernate_%E5%85%B3%E8%81%94%E7%BA%A7%E5%88%AB%E8%BF%90%E8%A1%8C%E6%97%B6%E7%9A%84%E6%A3%80%E7%B4%A2%E7%AD%96%E7%95%A5/" class="archive-article-date">
+  	<time datetime="2020-02-13T08:14:57.261Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="如果在-HQL-中没有显式指定检索策略-将使用映射文件配置的检索策略"><a href="#如果在-HQL-中没有显式指定检索策略-将使用映射文件配置的检索策略" class="headerlink" title="- 如果在 HQL 中没有显式指定检索策略, 将使用映射文件配置的检索策略"></a>- 如果在 HQL 中没有显式指定检索策略, 将使用映射文件配置的检索策略</h4><h4 id="HQL会忽略映射文件中设置的迫切左外连接检索策略-如果希望-HQL-采用迫切左外连接策略-就必须在HQL查询语句中显式的指定它"><a href="#HQL会忽略映射文件中设置的迫切左外连接检索策略-如果希望-HQL-采用迫切左外连接策略-就必须在HQL查询语句中显式的指定它" class="headerlink" title="- HQL会忽略映射文件中设置的迫切左外连接检索策略, 如果希望 HQL 采用迫切左外连接策略, 就必须在HQL查询语句中显式的指定它"></a>- HQL会忽略映射文件中设置的迫切左外连接检索策略, 如果希望 HQL 采用迫切左外连接策略, 就必须在HQL查询语句中显式的指定它</h4><h4 id="若在-HQL-代码中显式指定了检索策略-就会覆盖映射文件中配置的检索策略"><a href="#若在-HQL-代码中显式指定了检索策略-就会覆盖映射文件中配置的检索策略" class="headerlink" title="- 若在 HQL 代码中显式指定了检索策略, 就会覆盖映射文件中配置的检索策略"></a>- 若在 HQL 代码中显式指定了检索策略, 就会覆盖映射文件中配置的检索策略</h4>
+      
+
+       
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/hibernate//" class="article-tag-list-link color5">hibernate</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/02/13/Hibernate/Hibernate_%E5%85%B3%E8%81%94%E7%BA%A7%E5%88%AB%E8%BF%90%E8%A1%8C%E6%97%B6%E7%9A%84%E6%A3%80%E7%B4%A2%E7%AD%96%E7%95%A5/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Hibernate/Hibernate_QBC检索 和 本地SQL检索" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/13/Hibernate/Hibernate_QBC%E6%A3%80%E7%B4%A2%20%E5%92%8C%20%E6%9C%AC%E5%9C%B0SQL%E6%A3%80%E7%B4%A2/">Hibernate -- QBC检索 和 本地SQL检索</a>
+    </h1>
+  
+
+        
+        <a href="/2020/02/13/Hibernate/Hibernate_QBC%E6%A3%80%E7%B4%A2%20%E5%92%8C%20%E6%9C%AC%E5%9C%B0SQL%E6%A3%80%E7%B4%A2/" class="archive-article-date">
+  	<time datetime="2020-02-13T08:14:40.319Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li><p>QBC 查询就是通过使用 Hibernate 提供的 Query By Criteria API 来查询对象，这种 API 封装了 SQL 语句的动态拼装，对查询提供了更加面向对象的功能接口</p>
+</li>
+<li><p>本地SQL查询来完善HQL不能涵盖所有的查询特性。比如HQL不支持insert，但支持删除和修改</p>
+</li>
+</ul>
+        
+          <a class="article-more-a" href="/2020/02/13/Hibernate/Hibernate_QBC%E6%A3%80%E7%B4%A2%20%E5%92%8C%20%E6%9C%AC%E5%9C%B0SQL%E6%A3%80%E7%B4%A2/#more">more >></a>
+        
+      
+
+       
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/hibernate//" class="article-tag-list-link color5">hibernate</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/02/13/Hibernate/Hibernate_QBC%E6%A3%80%E7%B4%A2%20%E5%92%8C%20%E6%9C%AC%E5%9C%B0SQL%E6%A3%80%E7%B4%A2/">展开全文 >></a>
         </p>
       
 
@@ -336,7 +1028,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/3/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
+      <a class="extend prev" rel="prev" href="/page/3/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/5/">Next &amp;raquo;</a>
     </nav>
   
 
